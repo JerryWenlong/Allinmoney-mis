@@ -1,0 +1,39 @@
+<div class="page-body">
+	<div class="tool-bar">
+		<input type="search" class="searchbox" placeholder="请输入电话号码查询" ng-model='searchStr'>
+		<button class="btn" ng-click="query()">查询</button>
+		<button class="btn" ng-click="exportShow()">导出</button>
+	</div>
+	<div style="overflow-x:auto;overflow-y:hidden;-ms-overflow-x:auto;-ms-overflow-y:hidden;height: 392px;" >
+		<ul style="width: 888px;">
+			<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+				<ul class="fundAuditDetailTitle">
+					<li style="width: 160px">手机号</li>
+					<li style="width: 120px">奖品类型</li>
+					<li style="width: 120px">姓名</li>
+					<li style="width: 120px">奖品名称</li>
+					<li style="width: 100px">奖品价值</li>
+					<li style="width: 120px">奖期</li>
+					<li style="width: 140px">抽奖时间</li>
+				</ul>
+			</li>
+			<li style="height: 360px;font-size:13px;">
+				<ul class="fundAuditDetails" ng-repeat="obj in pageListData" class="fundAuditDetails" style="width: 100%;">
+					<li style="width: 160px">{{obj.recordObj.cellphone}}</li>
+					<li style="width: 120px">{{obj.recordObj.prizeType}}</li>
+					<li style="width: 120px">{{obj.recordObj.name}}</li>
+					<li style="width: 120px">{{obj.recordObj.prizeName}}</li>
+					<li style="width: 100px">{{obj.recordObj.prizeValue}}</li>
+					<li style="width: 120px">{{obj.recordObj.phaseIdStr}}</li>
+					<li style="width: 140px">{{obj.recordObj.createdAt}}</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div>
+		<div style="width:80%"><page conf="myConf" click-fn="changePage"></page></div>
+	</div>
+	<div class="buttonPannel">
+		<button ng-click="back();" class="btn" style="float: right;margin-right: 20px;margin-bottom: 20px">返回</button>
+	</div>
+</div>

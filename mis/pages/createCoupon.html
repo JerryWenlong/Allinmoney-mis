@@ -1,0 +1,122 @@
+<div class="createCouponPage page-body">
+	<div class="prod-title">
+		<p class="couponTitle">优惠券</p>
+	</div>
+	<div class="coupon-pannel">
+		<ul>
+			<li>
+				<label>优惠券名称</label>
+				<input type="text" ng-model="couponObj.title.value" ng-blur="checkTitle(true)"></input>
+				<span ng-show="couponObj.title.error" class="tip">{{couponObj.title.errorMsg}}</span>
+			</li>
+			<li>
+				<label>优惠券类别</label>
+				<select
+				ng-model="couponObj.categoryId.item"
+				ng-options="item as item.name for item in couponObj.categoryId.list track by item.value"
+				></select>
+			</li>
+			<li>
+				<label>面值</label>
+				<input type="text" ng-model="couponObj.value.value" ng-blur="checkValue(false)"></input>
+				<span>元</span>
+				<span ng-show="couponObj.value.error"  class="tip">{{couponObj.value.errorMsg}}</span>
+			</li>
+			<li>
+				<label>有效期</label>
+				<input type="text" ng-model="couponObj.term.value" ng-blur="checkTerm(false)"></input>
+				<span>天</span>
+				<span ng-show="couponObj.term.error" class="tip">{{couponObj.term.errorMsg}}</span>
+			</li>
+			<li>
+				<label>发行上限</label>
+				<input type="text"  ng-model="couponObj.countPlanned.value" ng-blur="checkCountPlanned(false)"></input>
+				<span>张</span>
+				<span ng-show="couponObj.countPlanned.error" class="tip">{{couponObj.countPlanned.errorMsg}}</span>
+			</li>
+			<li>
+				<label>发放开始时间</label>
+				<input
+				class="orderMgtPopInput3 datetimeInput"
+				type="text"
+				ng-model= "couponObj.issueBegin.value"
+				my-datetime datetime-id="couponIssueBegin"
+				datetime-model='couponObj.issueBegin'
+		        has-time='true'
+		        datetime-value='value'
+		        placeholder="发放开始时间"
+		        ng-blur="checkIssueBegin(false)"
+				></input>
+				<span ng-show="couponObj.issueBegin.error" class="tip">{{couponObj.issueBegin.errorMsg}}</span>
+			</li>
+			<li>
+				<label>发放截止时间</label>
+				<input
+				class="orderMgtPopInput3 datetimeInput"
+				type="text"
+				ng-model= "couponObj.issueEnd.value"
+				my-datetime datetime-id="couponIssueEnd"
+				datetime-model='couponObj.issueEnd'
+		        has-time='true'
+		        datetime-value='value'
+		        placeholder="发放截止时间"
+		         ng-blur="checkIssueEnd(false)"
+				></input>
+				<span ng-show="couponObj.issueEnd.error" class="tip">{{couponObj.issueEnd.errorMsg}}</span>
+			</li>
+			<li>
+				<label>产品投资期限</label>
+				<input type="text" ng-model="couponObj.prodTerm.value" ng-blur="checkProdTerm(false)" ng-disabled="disabledProdTerm();"></input>
+				<span>天</span>
+				<span ng-show="couponObj.prodTerm.error" class="tip">{{couponObj.prodTerm.errorMsg}}</span>
+			</li>
+			<li>
+				<label>适用用户</label>
+				<select
+				ng-model="couponObj.userGroup.item"
+				ng-options="item as item.name for item in couponObj.userGroup.list track by item.value"
+				></select>
+			</li>
+			<li>
+				<label>投资金额</label>
+				<input class="invest-limit" type="text"  ng-model="couponObj.minInvestAmount.value" ng-blur="checkInvestMin(false)"></input>
+				<span> {{investCondition}} </span>
+				<input class="invest-limit" type="text"  ng-model="couponObj.maxInvestAmount.value" ng-blur="checkInvestMax(false)"></input>
+				<span>元</span>
+				<span ng-show="couponObj.maxInvestAmount.error" class="tip">{{couponObj.maxInvestAmount.errorMsg}}</span>
+			</li>
+			<li class="prodDesc" style="height: 150px;">
+				<label>描述</label>
+				<textarea ng-model="couponObj.description.value" ng-blur="checkDescription(false)"></textarea>
+				<span ng-show="couponObj.description.error" class="tip">{{couponObj.description.errorMsg}}</span>
+			</li>
+		</ul>
+	</div>
+	<div class="coupon-pannel">
+		<div>
+			<label style="display: inline-block; float: left; margin-right: 10px;">适用产品</label>
+			<ul class="product-list-select">
+				<li ng-repeat='item in couponObj.productList.list'>
+					<input type="checkbox" ng-model="item.checked" />
+					<span ng-mouseover="showProdName($event);" ng-mouseleave="hideProdName();">{{item.name}}</span>
+				</li>
+			</ul>
+			<div class="selected-prod">
+				<label>所选择的产品:</label>
+				<div>
+					<div class="selected-item" ng-repeat='item in couponObj.productList.list | filter: selectedProductsFilter'>
+						<p>
+							<span>{{item.name}}</span>
+							<span class="closeDivBtn" ng-click="cancelSelect(item);"></span>
+						</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="confirm-pannel">
+		<button class="prodBtn" ng-click="submitCreateCoupon();">提交</button>
+		<button class="prodBtn" ng-click="cancel();">返回</button>
+	</div>
+</div>

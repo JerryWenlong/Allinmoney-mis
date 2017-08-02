@@ -1,0 +1,41 @@
+<div id="out">
+    <div id="out-right">
+<!--         <div id="top">
+            <span class="span1">产品允许业务</span>
+        </div> -->
+        <div id="ta-biz-bottom">
+                    <div id="ta-biz-content">
+                        <ul>
+                            <li><label>TA编号</label><select
+                                    ng-blur="checkItem(taBusinessModel.ta_no)"
+                                    ng-class="showError(taBusinessModel.ta_no) ? 'textBox' : 'error'"
+                                    ng-model="taBusinessModel.ta_no.item"
+                                    ng-options="item as item.name  for item in taBusinessModel.ta_no.list track by item.value"></select></li>
+                            <li><label>产品代码</label><select
+                                    ng-blur="checkItem(taBusinessModel.prod_code)"
+                                    ng-class="showError(taBusinessModel.prod_code) ? 'textBox' : 'error'"
+                                    ng-model="taBusinessModel.prod_code.item"
+                                    ng-options="item as item.name  for item in taBusinessModel.prod_code.list track by item.value"></select></li>
+                            <li><label>产品类型</label><select
+                                    ng-blur="checkItem(taBusinessModel.prod_type)"
+                                    ng-class="showError(taBusinessModel.prod_type) ? 'textBox' : 'error'"
+                                    ng-model="taBusinessModel.prod_type.item"
+                                    ng-options="item as item.name  for item in taBusinessModel.prod_type.list track by item.value"></select></li>
+                            <li><label>产品状态</label><select
+                                    ng-blur="checkItem(taBusinessModel.prod_status)"
+                                    ng-class="showError(taBusinessModel.prod_status) ? 'textBox' : 'error'"
+                                    ng-model="taBusinessModel.prod_status.item"
+                                    ng-options="item as item.name  for item in taBusinessModel.prod_status.list track by item.value"></select></li>
+                            <li><label>允许业务</label><select
+                                    ng-blur="checkItem(taBusinessModel.en_prod_business_type)"
+                                    ng-class="showError(taBusinessModel.en_prod_business_type) ? 'textBox' : 'error'"
+                                    ng-model="taBusinessModel.en_prod_business_type.item"
+                                    ng-options="item as item.name  for item in taBusinessModel.en_prod_business_type.list track by item.value"></select></li>
+                        </ul>
+                </div>
+                <div class="ta-commit-button">
+                    <button ng-click="submit()" class="btn">确    定</button>
+                    <button class="btn">取    消</button>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/">
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MIS</title>
+	<link rel="stylesheet" type="text/css" href="css/misPopup.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script type="text/javascript" src="js/base/base.js"></script>
+	<script type="text/javascript" src="js/lib/angular.js"></script>
+	<script type="text/javascript" src="js/lib/angular-route.js"></script>
+	<script type="text/javascript" src="js/lib/bcrypt.min.js"></script>
+	<script type="text/javascript" src="js/lib/md5.js"></script>
+	<script type="text/javascript" src="js/base/config.js"></script>
+	<script type="text/javascript" src="js/base/util.js"></script>
+	<script type="text/javascript" src="js/base/oop.js"></script>
+	<script type="text/javascript" src="js/base/user.js"></script>
+	<script type="text/javascript" src="js/base/popup.js"></script>
+	<script type="text/javascript" src="js/base/publicService.js"></script>
+	<script type="text/javascript" src="js/mis/login.js"></script>
+
+</head>
+<body onload="appStart();" ng-cloak>
+<div class="wrapper" ng-controller='loginController'>
+	<header class="header">
+		<div class="logo"></div>
+	</header> 
+	<div class="container">
+		<div class="login-pannel">
+			<div class="title">
+				<span >众网MIS系统</span>
+			</div>
+			<div class="name">
+				<span class="label">用户名</span>
+				<input type="text" placeholder="请输入用户名" 
+				ng-model='login.userName' maxlength="30" ng-blur='checkUserName();' 
+				ng-class="{'true': 'error'}[login.userNameError]" />
+			</div>
+			<div class="pw">
+				<span class="label">密码</span>
+				<input onfocus="this.type='password'" placeholder="请输入密码"
+				ng-model="login.password" maxlength="16" autocomplete="off" ng-blur='checkPassword();'
+				ng-class="{'true': 'error'}[login.passwordError]"/>
+			</div>
+			<div class="login-error" ng-show='login.loginError || login.userNameError || login.passwordError'>
+				<p ng-show="login.userNameError || login.passwordError" >{{login.errorMessage}}</p>
+				<p ng-show="login.loginError" >{{login.responseErrorMessage}}</p>
+			</div>
+			<div class="button-pannel">
+				<button class="btn login-btn" ng-click='loginToServer();' 
+				ng-disabled="login.userNameError || login.passwordError">登录</button>
+			</div>
+			
+		</div>
+	</div>
+	<footer class="footer">
+		
+	</footer>
+</div>
+</body>
+</html>

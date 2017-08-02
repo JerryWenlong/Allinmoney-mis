@@ -1,0 +1,243 @@
+<div class="fundAuditPage">
+	<div class="fundAuditPageTitle">
+		<label>{{title}}</label>
+		<select ng-model="searchStatus.item" 
+				ng-options="item as item.name for item in statusList track by item.value"
+				ng-change="changePage(1);"></select>
+		<div class="exportBtn"><button class="fundAuditPageTitleBtn" ng-click="export()">导出全部Excel</button></div>
+	</div>
+	<div>
+		<!-- <div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:390px;border-radius:0;border-left:0;border-right:0"></div> -->
+
+		<div ng-show="outAuditLogFlag" style="overflow-x:auto;overflow-y:hidden;height: 392px;" >
+			<ul style="overflow-x:auto;overflow-y:hidden;width: 1986px">
+				<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+					<ul class="fundAuditDetailTitle">
+						<li style="width: 110px">日期</li>
+						<li style="width: 150px">产品名称</li>
+						<li style="width: 100px">状态</li>
+						<li style="width: 150px">SPV/TA公司名称</li>
+						<li style="width: 100px">产品公司</li>
+						<li style="width: 120px">产品金额（元）</li>
+						<li style="width: 120px">总手续费（元）</li>
+						<li style="width: 160px">客户投资金额（元）</li>
+						<li style="width: 120px">产品成立日期</li>
+						<li style="width: 120px">产品结束日期</li>
+						<li style="width: 160px">合同年化收益率（%）</li>
+						<li style="width: 100px">收益方式</li>
+						<li style="width: 100px">投资周期</li>
+						<li style="width: 160px">产品结算金额（元）</li>
+						<li style="width: 100px">总笔数</li>
+						<li style="width: 100px">备注</li>
+					</ul>
+				</li>
+				<li style="height: 360px;font-size:13px;">
+					<ul class="fundAuditDetails" ng-repeat="obj in pageListData" class="fundAuditDetails" style="width: 100%;">
+						<li style="width: 110px">{{obj.logObj.tradeDate.displayValue}}</li>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.prodName.show = true" ng-mouseleave="obj.logObj.prodName.show = false">
+							<li style="width: 150px;">{{obj.logObj.prodName.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.prodName.value != '' && obj.logObj.prodName.show" style="margin-left: -100px;"></span>
+							<span style="margin-left:-200px;width:220px" ng-show="obj.logObj.prodName.value != '' && obj.logObj.prodName.show" class="bubble1">{{obj.logObj.prodName.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.statusNew.show = true" ng-mouseleave="obj.logObj.statusNew.show = false">
+							<li style="width: 100px;">{{getValue(obj.logObj.statusNew)}}</li>
+							<span class="triangle1" ng-show="obj.logObj.statusNew.value != '' && obj.logObj.statusNew.show" style="margin-left: -60px;"></span>
+							<span style="margin-left:-130px;" ng-show="getValue(obj.logObj.statusNew) != '' && obj.logObj.statusNew.show" class="bubble1">{{getValue(obj.logObj.statusNew)}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.spvTaNo.show = true" ng-mouseleave="obj.logObj.spvTaNo.show = false">
+							<li style="width: 150px">{{obj.logObj.spvTaNo.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.spvTaNo.value != '' && obj.logObj.spvTaNo.show" style="margin-left: -80px;"></span>
+							<span style="margin-left:-160px;" ng-show="obj.logObj.spvTaNo.value !='' && obj.logObj.spvTaNo.show" class="bubble1">{{obj.logObj.spvTaNo.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.prodCompany.show = true" ng-mouseleave="obj.logObj.prodCompany.show = false">
+							<li style="width: 100px">{{obj.logObj.prodCompany.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.prodCompany.value != '' && obj.logObj.prodCompany.show" style="margin-left: -60px;"></span>
+							<span style="margin-left:-160px;width:220px" ng-show="obj.logObj.prodCompany.value != '' && obj.logObj.prodCompany.show" class="bubble1">{{obj.logObj.prodCompany.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.entrustAmount.show = true" ng-mouseleave="obj.logObj.entrustAmount.show = false">
+							<li style="width: 120px">{{obj.logObj.entrustAmount.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.entrustAmount.value != '' && obj.logObj.entrustAmount.show" style="margin-left: -68px;"></span>
+							<span style="margin-left:-140px;" ng-show="obj.logObj.entrustAmount.value != '' && obj.logObj.entrustAmount.show" class="bubble1">{{obj.logObj.entrustAmount.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.totalFee.show = true" ng-mouseleave="obj.logObj.totalFee.show = false">
+							<li style="width: 120px">{{obj.logObj.totalFee.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.totalFee.value != '' && obj.logObj.totalFee.show" style="margin-left: -70px;"></span>
+							<span style="margin-left:-140px;" ng-show="obj.logObj.totalFee.value !='' && obj.logObj.totalFee.show" class="bubble1">{{obj.logObj.totalFee.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.payAmount.show = true" ng-mouseleave="obj.logObj.payAmount.show = false">
+							<li style="width: 160px">{{obj.logObj.payAmount.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.payAmount.value != '' && obj.logObj.payAmount.show" style="margin-left: -82px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.payAmount.value !='' && obj.logObj.payAmount.show" class="bubble1">{{obj.logObj.payAmount.value}}</span>
+						</div>
+
+						<li style="width: 120px">{{obj.logObj.prodBeginDate.displayValue}}</li>
+						<li style="width: 120px">{{obj.logObj.prodEndDate.displayValue}}</li>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.interestRateContract.show = true" ng-mouseleave="obj.logObj.interestRateContract.show = false">
+							<li style="width: 160px;">{{obj.logObj.interestRateContract.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.interestRateContract.value != '' && obj.logObj.interestRateContract.show" style="margin-left: -82px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.interestRateContract.value != '' && obj.logObj.interestRateContract.show" class="bubble1">{{obj.logObj.interestRateContract.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.interestFreq.show = true" ng-mouseleave="obj.logObj.interestFreq.show = false">
+							<li style="width: 100px">{{obj.logObj.interestFreq.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.interestFreq.value != '' && obj.logObj.interestFreq.show" style="margin-left: -70px;"></span>
+							<span style="margin-left:-140px;" ng-show="obj.logObj.interestFreq.value != '' && obj.logObj.interestFreq.show" class="bubble1">{{obj.logObj.interestFreq.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.prodLife.show = true" ng-mouseleave="obj.logObj.prodLife.show = false">
+							<li style="width: 100px">{{obj.logObj.prodLife.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.prodLife.value != '' && obj.logObj.prodLife.show" style="margin-left: -55px;"></span>
+							<span style="margin-left:-140px;" ng-show="obj.logObj.prodLife.value != '' && obj.logObj.prodLife.show" class="bubble1">{{obj.logObj.prodLife.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.settAmountProd.show = true" ng-mouseleave="obj.logObj.settAmountProd.show = false">
+							<li style="width: 160px">{{obj.logObj.settAmountProd.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.settAmountProd.value != '' && obj.logObj.settAmountProd.show" style="margin-left: -82px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.settAmountProd.value != '' && obj.logObj.settAmountProd.show" class="bubble1">{{obj.logObj.settAmountProd.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.totalCount.show = true" ng-mouseleave="obj.logObj.totalCount.show = false">
+							<li style="width: 100px">{{obj.logObj.totalCount.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.totalCount.value != '' && obj.logObj.totalCount.show" style="margin-left: -55px;"></span>
+							<span style="margin-left:-140px;" ng-show="obj.logObj.totalCount.value != '' && obj.logObj.totalCount.show" class="bubble1">{{obj.logObj.totalCount.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.remark.show = true" ng-mouseleave="obj.logObj.remark.show = false">
+							<li  style="width: 100px">{{obj.logObj.remark.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.remark.value != '' && obj.logObj.remark.show" style="margin-left: -60px;"></span>
+							<span style="margin-left:-212px;width: 200px;"  class="bubble1" ng-show="obj.logObj.remark.value != '' && obj.logObj.remark.show">{{obj.logObj.remark.value}}</span>
+						</div>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div ng-show="inAuditLogFlag" style="overflow-x:auto;overflow-y:hidden;height: 392px;" >
+			<ul style="overflow-x:auto;overflow-y:hidden;width: 2247px">
+				<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+					<ul class="fundAuditDetailTitle">
+						<li style="width: 110px">审核日期</li>
+						<li style="width: 150px">产品名称</li>
+						<li style="width: 100px">状态</li>
+						<li style="width: 150px">SPV/TA公司名称</li>
+						<li style="width: 100px">产品公司</li>
+						<li style="width: 120px">产品成立日期</li>
+						<li style="width: 120px">产品结束日期</li>
+						<li style="width: 160px">用户年化收益率（%）</li>
+						<li style="width: 160px">合同年化收益率（%）</li>
+						<li style="width: 100px">收益方式</li>
+						<li style="width: 100px">收费类型</li>
+						<li style="width: 160px">产品结算金额（元）</li>
+						<li style="width: 160px">SPV结算金额（元）</li>
+						<li style="width: 160px">客户投资金额（元）</li>
+						<li style="width: 160px">客户结算金额（元）</li>
+						<li style="width: 120px">平台收益（元）</li>
+						<li style="width: 100px">备注</li>
+					</ul>
+				</li>
+				<li style="height: 360px;font-size:13px;">
+					<ul class="fundAuditDetails" ng-repeat="obj in pageListData" class="fundAuditDetails" style="width: 100%;">
+						<li style="width: 110px">{{obj.logObj.reportDate.displayValue}}</li>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.prodName.show = true" ng-mouseleave="obj.logObj.prodName.show = false">
+							<li style="width: 150px;">{{obj.logObj.prodName.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.prodName.value != '' && obj.logObj.prodName.show" style="margin-left: -90px;"></span>
+							<span style="margin-left:-200px;width:220px" ng-show="obj.logObj.prodName.value != '' && obj.logObj.prodName.show" class="bubble1">{{obj.logObj.prodName.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.statusNew.show = true" ng-mouseleave="obj.logObj.statusNew.show = false">
+							<li style="width: 100px;">{{getValue(obj.logObj.statusNew)}}</li>
+							<span class="triangle1" ng-show="obj.logObj.statusNew.value != '' && obj.logObj.statusNew.show" style="margin-left: -55px;"></span>
+							<span style="margin-left:-130px;" ng-show="obj.logObj.statusNew.value != '' && obj.logObj.statusNew.show" class="bubble1">{{getValue(obj.logObj.statusNew)}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.spvTaNo.show = true" ng-mouseleave="obj.logObj.spvTaNo.show = false">
+							<li style="width: 150px">{{obj.logObj.spvTaNo.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.spvTaNo.value != '' && obj.logObj.spvTaNo.show" style="margin-left: -80px;"></span>
+							<span style="margin-left:-160px;" ng-show="obj.logObj.spvTaNo.value != '' && obj.logObj.spvTaNo.show" class="bubble1">{{obj.logObj.spvTaNo.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.prodCompany.show = true" ng-mouseleave="obj.logObj.prodCompany.show = false">
+							<li style="width: 100px">{{obj.logObj.prodCompany.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.prodCompany.value != '' && obj.logObj.prodCompany.show" style="margin-left: -60px;"></span>
+							<span style="margin-left:-160px;width:220px" ng-show="obj.logObj.prodCompany.value != '' && obj.logObj.prodCompany.show" class="bubble1">{{obj.logObj.prodCompany.value}}</span>
+						</div>
+
+						<li style="width: 120px">{{obj.logObj.prodBeginDate.displayValue}}</li>
+						<li style="width: 120px">{{obj.logObj.prodEndDate.displayValue}}</li>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.interestRateCustomer.show = true" ng-mouseleave="obj.logObj.interestRateCustomer.show = false">
+							<li style="width: 160px;">{{obj.logObj.interestRateCustomer.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.interestRateCustomer.value != '' && obj.logObj.interestRateCustomer.show" style="margin-left: -85px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.interestRateCustomer.value != '' && obj.logObj.interestRateCustomer.show" class="bubble1">{{obj.logObj.interestRateCustomer.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.interestRateContract.show = true" ng-mouseleave="obj.logObj.interestRateContract.show = false">
+							<li style="width: 160px;">{{obj.logObj.interestRateContract.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.interestRateContract.value != '' && obj.logObj.interestRateContract.show" style="margin-left: -85px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.interestRateContract.value != '' && obj.logObj.interestRateContract.show" class="bubble1">{{obj.logObj.interestRateContract.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.interestFreq.show = true" ng-mouseleave="obj.logObj.interestFreq.show = false">
+							<li style="width: 100px">{{obj.logObj.interestFreq.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.interestFreq.value != '' && obj.logObj.interestFreq.show" style="margin-left: -55px;"></span>
+							<span style="margin-left:-140px;" ng-show="obj.logObj.interestFreq.value != '' && obj.logObj.interestFreq.show" class="bubble1">{{obj.logObj.interestFreq.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.feeType.show = true" ng-mouseleave="obj.logObj.feeType.show = false">
+							<li style="width: 100px;">{{getValue(obj.logObj.feeType)}}</li>
+							<span class="triangle1" ng-show="getValue(obj.logObj.feeType) != '' && obj.logObj.feeType.show" style="margin-left: -55px;"></span>
+							<span style="margin-left:-130px;" ng-show="getValue(obj.logObj.feeType) != '' && obj.logObj.feeType.show" class="bubble1">{{getValue(obj.logObj.feeType)}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.settAmountProd.show = true" ng-mouseleave="obj.logObj.settAmountProd.show = false">
+							<li style="width: 160px">{{obj.logObj.settAmountProd.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.settAmountProd.value != '' && obj.logObj.settAmountProd.show" style="margin-left: -85px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.settAmountProd.value != '' && obj.logObj.settAmountProd.show" class="bubble1">{{obj.logObj.settAmountProd.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.settAmountSpv.show = true" ng-mouseleave="obj.logObj.settAmountSpv.show = false">
+							<li style="width: 160px">{{obj.logObj.settAmountSpv.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.settAmountSpv.value != '' && obj.logObj.settAmountSpv.show" style="margin-left: -85px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.settAmountSpv.value != '' && obj.logObj.settAmountSpv.show" class="bubble1">{{obj.logObj.settAmountSpv.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.payAmount.show = true" ng-mouseleave="obj.logObj.payAmount.show = false">
+							<li style="width: 160px">{{obj.logObj.payAmount.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.payAmount.value != '' && obj.logObj.payAmount.show" style="margin-left: -85px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.payAmount.value != '' && obj.logObj.payAmount.show" class="bubble1">{{obj.logObj.payAmount.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.settAmountCustomer.show = true" ng-mouseleave="obj.logObj.settAmountCustomer.show = false">
+							<li style="width: 160px">{{obj.logObj.settAmountCustomer.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.settAmountCustomer.value != '' && obj.logObj.settAmountCustomer.show" style="margin-left: -85px;"></span>
+							<span style="margin-left:-165px;" ng-show="obj.logObj.settAmountCustomer.value != '' && obj.logObj.settAmountCustomer.show" class="bubble1">{{obj.logObj.settAmountCustomer.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.interestPlatform.show = true" ng-mouseleave="obj.logObj.interestPlatform.show = false">
+							<li style="width: 120px">{{obj.logObj.interestPlatform.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.interestPlatform.value != '' && obj.logObj.interestPlatform.show" style="margin-left: -65px;"></span>
+							<span style="margin-left:-145px;" ng-show="obj.logObj.interestPlatform.value != '' && obj.logObj.interestPlatform.show" class="bubble1">{{obj.logObj.interestPlatform.value}}</span>
+						</div>
+
+						<div style="position: relative;" ng-mousemove="obj.logObj.remark.show = true" ng-mouseleave="obj.logObj.remark.show = false">
+							<li style="width: 100px">{{obj.logObj.remark.value}}</li>
+							<span class="triangle1" ng-show="obj.logObj.remark.value != '' && obj.logObj.remark.show" style="margin-left: -65px;"></span>
+							<span style="margin-left:-170px;" ng-show="obj.logObj.remark.value != '' && obj.logObj.remark.show" class="bubble1">{{obj.logObj.remark.value}}</span>
+						</div>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<page conf="myConf" click-fn="changePage"></page>
+	</div>
+</div>

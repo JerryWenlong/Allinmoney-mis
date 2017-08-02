@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<base href="/">
+	<meta charset="utf-8">
+  <meta name="renderer" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MIS</title>
+  <link rel="stylesheet" type="text/css" href="css/treeview.css">
+  <link rel="stylesheet" type="text/css" href="css/misPopup.css">
+  <link rel="stylesheet" type="text/css" href="css/ui-grid.min.css">
+  <link rel="stylesheet" type="text/css" href="css/foldingNav.css">
+  <link rel="stylesheet" type="text/css" href="css/treeview.css">
+  <link rel="stylesheet" type="text/css" href="css/myGrid2.css">
+  <link rel="stylesheet" type="text/css" href="css/mis.css">
+  <link rel="stylesheet" type="text/css" href="css/pagebody.css">
+  <link rel="stylesheet" type="text/css" href="css/pagination.css">
+  <link rel="stylesheet" type="text/css" href="css/productShelves.css">
+  <link rel="stylesheet" type="text/css" href="css/ta.css">
+  <link rel="stylesheet" type="text/css" href="css/settle.css">
+  <link rel="stylesheet" type="text/css" href="css/coupon.css">
+  <link rel="stylesheet" type="text/css" href="css/affiche.css">
+  <link rel="stylesheet" type="text/css" href="css/invest.css">
+  <link rel="stylesheet" type="text/css" href="css/active.css">
+  <link rel="stylesheet" type="text/css" href="css/point.css">
+  <link rel="stylesheet" type="text/css" href="css/searchdown.css">
+  <link rel="stylesheet" type="text/css" href="css/userDetail.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="stylesheet" type="text/css" href="css/dlcGrid.css">
+  <script type="text/javascript" src="js/base/base.js"></script>
+  <script type="text/javascript" src="js/lib/angular.js"></script>
+  <script type="text/javascript" src="js/lib/angular-route.js"></script>
+  <script type="text/javascript" src="js/lib/angular-touch.js"></script>
+  <script type="text/javascript" src="js/lib/angular-animate.js"></script>
+  <script type="text/javascript" src="js/lib/ui-grid.js"></script>
+  <script type="text/javascript" src="js/lib/sockjs-0.3.4.js"></script>
+  <script type="text/javascript" src="js/lib/stomp.js"></script>
+  <script type="text/javascript" src="js/lib/bcrypt.min.js"></script>
+  <script type="text/javascript" src="js/lib/md5.js"></script>
+  <script type="text/javascript" src="js/base/config.js"></script>
+  <script type="text/javascript" src="js/base/config.report.js"></script>
+  
+  <script type="text/javascript" charset="utf-8" src="js/ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/ueditor/ueditor.all.js"></script>
+  
+  <script type="text/javascript" src="js/base/fileupload.js"></script>
+  <script type="text/javascript" src="js/base/treeview.js"></script>
+  <script type="text/javascript" src="js/base/foldingNavigationBar.js"></script>
+  <script type="text/javascript" src="js/base/dropDownList.js"></script>
+  <script type="text/javascript" src="js/base/dropDownCheckList.js"></script>
+  <script type="text/javascript" src="js/base/searchDownList.js"></script>
+  
+  <script type="text/javascript" src="js/base/util.js"></script>
+  <script type="text/javascript" src="js/base/oop.js"></script>
+  <script type="text/javascript" src="js/base/roleAccess.js"></script>
+  <script type="text/javascript" src="js/base/navigate.js"></script>
+  <script type="text/javascript" src="js/base/user.js"></script>
+  <script type="text/javascript" src="js/base/popup.js"></script>
+  <script type="text/javascript" src="js/base/datetime.js"></script>
+  <script type="text/javascript" src="js/base/date.js"></script>
+  <script type="text/javascript" src="js/base/datetimeview.js"></script>
+  <script type="text/javascript" src="js/base/pagination.js"></script>
+  <script type="text/javascript" src="js/base/prodDetails.js"></script>
+  <script type="text/javascript" src="js/base/product.js"></script>
+  <script type="text/javascript" src="js/base/account.js"></script>
+  <script type="text/javascript" src="js/base/taBusiness.js"></script>
+  <script type="text/javascript" src="js/base/taTrade.js"></script>
+  <script type="text/javascript" src="js/base/prodQuota.js"></script>
+  <script type="text/javascript" src="js/base/settle.js"></script>
+  <script type="text/javascript" src="js/base/fund.js"></script>
+  <script type="text/javascript" src="js/base/finance.js"></script>
+  <script type="text/javascript" src="js/base/coupon.js"></script>
+  <script type="text/javascript" src="js/base/affiche.js"></script>
+  <script type="text/javascript" src="js/base/invest.js"></script>
+  <script type="text/javascript" src="js/base/activity.js"></script>
+  <script type="text/javascript" src="js/base/point.js"></script>
+  <script type="text/javascript" src="js/base/customer.js"></script>
+  <script type="text/javascript" src="js/base/prize.js"></script>
+  <script type="text/javascript" src="js/base/interestToken.js"></script>
+  <script type="text/javascript" src="js/base/report.js"></script>
+
+  <script type="text/javascript" src="js/base/publicService.js"></script>
+  <script type="text/javascript" src="js/mis/misAccountManagement.js"></script>
+  <script type="text/javascript" src="js/mis/productManage.js"></script>
+  <script type="text/javascript" src="js/mis/home.js"></script>
+  <!-- <script type="text/javascript" src="js/mis/login.js"></script> -->
+  <script type="text/javascript" src="js/mis/authority.js"></script>
+  <script type="text/javascript" src="js/mis/productShelves.js"></script>
+  <script type="text/javascript" src="js/mis/setTaBusiness.js"></script>
+  <script type="text/javascript" src="js/mis/setTaTrade.js"></script>
+  <script type="text/javascript" src="js/mis/setProdQuota.js"></script>
+  <script type="text/javascript" src="js/mis/showSettleError.js"></script>
+  <script type="text/javascript" src="js/mis/setSettleDetails.js"></script>
+  <script type="text/javascript" src="js/mis/dict.js"></script>
+  <script type="text/javascript" src="js/mis/fundAudit.js"></script>
+  <script type="text/javascript" src="js/mis/financeMgt.js"></script>
+  <script type="text/javascript" src="js/mis/orderMgt.js"></script>
+  <script type="text/javascript" src="js/mis/userMgt.js"></script>
+  <script type="text/javascript" src="js/mis/auditLog.js"></script>
+  <script type="text/javascript" src="js/mis/couponMgt.js"></script>
+  <script type="text/javascript" src="js/mis/afficheMgt.js"></script>
+  <script type="text/javascript" src="js/mis/investMgt.js"></script>
+  <script type="text/javascript" src="js/mis/activityMgt.js"></script>
+  <script type="text/javascript" src="js/mis/pointMgt.js"></script>
+  <script type="text/javascript" src="js/mis/reportMgt.js"></script>
+
+
+  <script type="text/javascript" src="js/mis/main.js"></script>
+  <script type="text/javascript" src="js/mis/start.js"></script>
+
+
+</head>
+<body onload="appStart();" ng-controller='mainController' ng-cloak>
+		<div class="title-logo">
+      <div class="text1">{{welcomeMsg}}
+        <button class="btn title-btn " style="margin-left: 15px;" ng-click='resetPassword();'>修改密码</button>
+        <button class="btn title-btn logout-btn" style="margin-left: 0;" ng-click='logout();'>注销</button>
+      </div>
+      <div class="banner" ng-click="goHome()"><img src="./img/logo.png"><span>点理财管理信息系统</span></div>
+      <div class="text2">
+        <button class="title-btn bottom-btn" ng-click="fnMgt()">功能管理</button>
+        <button class="title-btn bottom-btn" ng-click="sysMgt()" ng-show="showSysTree">系统管理</button>
+      </div>
+		</div>
+    <div class="main-container">
+  		<div class="w">
+  			<div class="pannel aside">
+  			<!-- 	<div class='logo'>
+  					<span>MIS</span>
+  				</div> -->
+  				<div
+  					data-floading-nav="true"
+  					data-nav-id="mytree"
+  					data-folding-navmodel="misTree"
+  					data-node-id="roleId"
+  					data-node-label="roleName"
+  					data-node-children="children" 
+  					data-end-click="treeClick">
+  				</div>
+  			</div>
+  			<div class="pannel main">
+          <div class="tabs-header">
+            <div class="scroll-left scroll-btn"  ng-class="{true: 'showScroll'}[showScroll]" ng-click="moveScroll(true)"><<</div>
+            <div class="scroll-right scroll-btn"  ng-class="{true: 'showScroll'}[showScroll]"ng-click="moveScroll()">>></div>
+            <div class="tabs-wrap" id='navWrap'  ng-class="{true: 'showScroll'}[showScroll]">
+              <ol class="nav" id='navBar' ng-class="{true: 'showScroll'}[showScroll]">
+                <!-- <li ng-repeat="tab in tabList" ng-class="{true:'active'}[currentTab.currentUrl == tab.currentUrl]" ng-click="changeTab(tab)">
+                  <a ><span>{{tab.name}}</span></a>
+                  <a class="close-btn" ng-click="closeTab(tab);"></a>
+                </li> -->
+              </ol>
+            </div>
+          </div>
+          
+  				<div class="page-container">
+  					<div class="page-view" ng-view style="position: relative;"></div>
+            <div id="pageContainerCover" ng-show="pageCover" class="misPopupCover grey" style="width: 100%;height: 100%"></div>
+  				</div>
+  			</div>
+      </div>
+		</div>
+    <div class="footer">&copy;众网金融科技（上海）有限公司</div>
+</body>
+</html>

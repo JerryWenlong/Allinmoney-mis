@@ -1,0 +1,12 @@
+<div class="financeMgtPage">
+	<div class="financeMgtPageTitle">
+		<input type="search" class="searchBox1" style="margin-left:20px;" placeholder="请输入用户名/真实姓名查询">
+		<button class="financeMgtPageTitleBtn" ng-click="query()">查询</button>
+		<button class="financeMgtPageTitleBtn" ng-click="advanceQuery()">高级查询</button>
+		<div style="float:right;margin-right:16px;"><button class="fundAuditPageTitleBtn" ng-click="export()">导出全部Excel</button></div>
+	</div>
+	<div>
+		<div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:590px;border-radius:0;border-left:0;border-right:0"></div>
+		<page conf="myConf" click-fn="changePage"></page>
+	</div>
+</div>

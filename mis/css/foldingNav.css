@@ -1,0 +1,201 @@
+div[data-floading-nav] {
+  /* prevent user selection */
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* default */
+  font-family: "Microsoft Yahei";
+  font-size:22px;
+  color: #625548;
+  text-decoration: none;
+}
+div[data-folding-navmodel] ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; 
+  border: none;
+  overflow: hidden;
+}
+div[data-folding-navmodel] ul .head{
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #1d94ed;
+}
+div[data-folding-navmodel] ul .head:last-child{
+  border-bottom: none;
+}
+div[data-folding-navmodel] ul .label-text{
+  display: inline-block;
+  width: 85px;
+  text-align: center;
+  float: left;
+}
+div[data-folding-navmodel] ul .head.selected{
+  color: #2aa0f8;
+}
+div[data-folding-navmodel] ul .item{
+  font-size: 14px;
+  height: 36px;
+  line-height: 36px;
+  color: #6d6d6d;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+}
+div[data-folding-navmodel] ul .item .label-text{
+  float: none;
+  width: 100%;
+}
+div[data-folding-navmodel] ul .item:last-child{
+  border-bottom-color: #1d94ed;
+}
+
+div[data-folding-navmodel] ul .item.selected {
+  color: #2aa0f8;
+  border:1px solid #77c5ff;
+  background-color: #ddf6fd;
+  border-left-width: 9px;
+  border-left-color: #fd9814;
+  border-left-style: solid;
+}
+div[data-folding-navmodel] ul .item.selected .label-text{
+  margin-left: -9px;
+  color: white;
+  background-color: #2292fb;
+}
+div[data-folding-navmodel] li {
+  position: relative;
+}
+
+div[data-folding-navmodel] li span.icon-before{
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  padding: 12px;
+  float: left;
+}
+
+div[data-folding-navmodel] li span.icon-end{
+  display: inline-block;
+  width: 26px;
+  height: 50px;
+  padding: 0 13px;
+  font-family: "SimSun";
+  text-align: center;
+  color: #1d94ed;
+}
+
+div[data-folding-navmodel] li span.icon-end.expanded{
+  -webkit-transform: rotate(90deg); 
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg); 
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); 
+}
+div[data-folding-navmodel] li span.icon-before .icon{
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+div[data-folding-navmodel] ul .head .icon1{
+  background-image: url("../img/product-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon1{
+  background-image: url("../img/product-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon2{
+  background-image: url("../img/user-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon2{
+  background-image: url("../img/user-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon3{
+  background-image: url("../img/finance-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon3{
+  background-image: url("../img/finance-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon4{
+  background-image: url("../img/order-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon4{
+  background-image: url("../img/order-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon5{
+  background-image: url("../img/fund-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon5{
+  background-image: url("../img/fund-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon6{
+  background-image: url("../img/audit-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon6{
+  background-image: url("../img/audit-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon7{
+  background-image: url("../img/settle-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon7{
+  background-image: url("../img/settle-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon8{
+  background-image: url("../img/account-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon8{
+  background-image: url("../img/account-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon9{
+  background-image: url("../img/affiche-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon9{
+  background-image: url("../img/affiche-icon-selected.png?__sprite");
+}
+
+div[data-folding-navmodel] ul .head .icon10{
+  background-image: url("../img/activity-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon10{
+  background-image: url("../img/activity-icon-selected.png?__sprite");
+}
+div[data-folding-navmodel] ul .head .icon11{
+  background-image: url("../img/point-icon.png?__sprite");
+}
+div[data-folding-navmodel] ul .head.selected .icon11{
+  background-image: url("../img/point-icon-selected.png?__sprite");
+}
+/*div[data-folding-navmodel] li .expanded {
+  padding: 1px 10px;
+  background-image: url("../img/folder.png");
+  background-repeat: no-repeat;
+}
+
+div[data-folding-navmodel] li .collapsed {
+  padding: 1px 10px;
+  background-image: url("../img/folder-closed.png");
+  background-repeat: no-repeat;
+}*/
+
+/*div[data-folding-navmodel] li .normal {
+  padding: 1px 10px;
+  background-image: url("../img/file.png");
+  background-repeat: no-repeat;
+}*/
+
+div[data-folding-navmodel] li span {
+  cursor: pointer;
+}

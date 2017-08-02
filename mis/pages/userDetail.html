@@ -1,0 +1,48 @@
+<div class="userDetail page-body">
+	<div class="info-block">
+		<p class="info-title"><label>基本信息</label></p>
+		<ul>
+			<li><label>注册手机号:</label><span>{{dataModel.customerObj.cellphone}}</span></li>
+			<li><label>注册时间:</label><span>{{dataModel.customerObj.registerAt}}</span></li>
+			<li><label>姓名:</label><span>{{dataModel.customerObj.name}}</span></li>
+			<li><label>性别:</label><span></span></li>
+			<li><label>用户名:</label><span>{{dataModel.customerObj.userName}}</span></li>
+			<li><label>推荐人:</label><span>{{dataModel.customerObj.refereeName}}</span></li>
+			<li><label>邮箱:</label><span>{{dataModel.customerObj.email}}</span></li>
+			<li><label>最后登录时间:</label><span>{{dataModel.customerObj.loginAt}}</span></li>
+		</ul>
+	</div>
+	<div class="info-block">
+		<p class="info-title"><label>资金账户</label></p>
+		<ul>
+			<li><label>待收收益:</label><span>{{dataModel.detailObj.expectProfit}}</span></li>
+			<li><label>累计收益:</label><span>{{dataModel.detailObj.totalProfit}}</span></li>
+			<li><label>账户余额:</label><span>{{dataModel.detailObj.available}}</span></li>
+			<li><label>总资产:</label><span>{{dataModel.detailObj.totalAsset}}</span></li>
+		</ul>
+	</div>
+	<div class="info-block">
+		<p class="info-title"><label>实名认证</label></p>
+		<ul>
+			<li><label>真实姓名:</label><span>{{dataModel.detailObj.userName}}</span></li>
+			<li><label>认证时间:</label><span>{{dataModel.detailObj.authTime}}</span></li>
+			<li><label>身份证号:</label><span>{{dataModel.detailObj.idNo}}</span></li>
+			<li><label>认证状态:</label><span>{{dataModel.detailObj.status}}</span></li>
+			<li><label>年龄:</label><span>{{dataModel.detailObj.age}}</span></li>
+			<li><label>性别:</label><span>{{dataModel.detailObj.gender}}</span></li>
+		</ul>
+	</div>
+	<div class="info-block">
+		<p class="info-title"><label>绑卡认证</label></p>
+		<ul>
+			<li><label>银行预留手机号:</label><span>{{dataModel.detailObj.bankCellphone}}</span></li>
+			<li><label>绑卡时间:</label><span>{{dataModel.detailObj.bindTime}}</span></li>
+			<li><label>绑定银行卡号:</label><span>{{dataModel.detailObj.cardNo}}</span></li>
+			<li><label>绑定银行名称:</label><span>{{dataModel.detailObj.bankName}}</span></li>
+			<li><label>绑定状态:</label><span>{{dataModel.detailObj.bindStatus}}</span></li>
+		</ul>
+	</div>
+	<div class="button-line">
+		<button class="btn" ng-click="back();">返回</button>
+	</div>
+</div>

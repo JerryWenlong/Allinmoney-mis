@@ -1,0 +1,88 @@
+<div id="out">
+    <div id="out-right">
+<!--         <div id="top">
+            <span class="span1">交易参数设置</span>
+        </div> -->
+        <div id="ta-trade-bottom">
+            <div id="ta-trade-content">
+                <div id="ta-trade-top-content">
+                <ul class="lateralUlWith2Columns">
+                    <li><label>TA编号</label><select
+                            ng-blur="checkItem(taTradeModel.ta_no)"
+                            ng-class="showError(taTradeModel.ta_no) ? 'textBox' : 'error'"
+                            ng-model="taTradeModel.ta_no.item"
+                            ng-options="item as item.name  for item in taTradeModel.ta_no.list track by item.value"></select></li>
+                    <li><label>销售商号</label><input
+                            ng-model="taTradeModel.agency_no.value"
+                            ng-class="showError(taTradeModel.agency_no) ? 'textBox' : 'error'"
+                            ng-blur="checkItem(taTradeModel.agency_no)" type="text" /></li>
+                    <li><label>产品类型</label><select
+                            ng-blur="checkItem(taTradeModel.prod_type)"
+                            ng-class="showError(taTradeModel.prod_type) ? 'textBox' : 'error'"
+                            ng-model="taTradeModel.prod_type.item"
+                            ng-options="item as item.name  for item in taTradeModel.prod_type.list track by item.value"></select></li>
+                    <li><label>销售商名称</label><input
+                            ng-model="taTradeModel.agency_name.value"
+                            ng-class="showError(taTradeModel.agency_name) ? 'textBox' : 'error'"
+                            ng-blur="checkItem(taTradeModel.agency_name)" type="text" /></li>
+                    <li><label>TA名称</label><input
+                            ng-model="taTradeModel.ta_name.value"
+                            ng-class="showError(taTradeModel.ta_name) ? 'textBox' : 'error'"
+                            ng-blur="checkItem(taTradeModel.ta_name)" type="text" /></li>
+                    <li><label>当前交易日期</label><input
+                            type="text"
+                            ng-blur="checkItem(taTradeModel.init_date)"
+                            ng-class="showError(taTradeModel.init_date) ? 'textBox' : 'error'"
+                            ng-model="taTradeModel.init_date.value"
+                            my-datetime datetime-id='initDate'
+                            datetime-model='taTradeModel.init_date'
+                            datetime-value='value' /></li>
+                    <li><label>TA简称</label><input
+                            ng-model="taTradeModel.ta_short_name.value"
+                            ng-class="showError(taTradeModel.ta_short_name) ? 'textBox' : 'error'"
+                            ng-blur="checkItem(taTradeModel.ta_short_name)" type="text" /></li>
+                    <li><label>系统备份前日期</label><input
+                            type="text"
+                            ng-blur="checkItem(taTradeModel.fbackup_time)"
+                            ng-class="showError(taTradeModel.fbackup_time) ? 'textBox' : 'error'"
+                            ng-model="taTradeModel.fbackup_time.value"
+                            my-datetime datetime-id='fbackupTime'
+                            datetime-model='taTradeModel.fbackup_time'
+                            datetime-value='value' /></li>
+                    <li><label>TA状态</label><select
+                            ng-blur="checkItem(taTradeModel.prod_ta_status)"
+                            ng-class="showError(taTradeModel.prod_ta_status) ? 'textBox' : 'error'"
+                            ng-model="taTradeModel.prod_ta_status.item"
+                            ng-options="item as item.name  for item in taTradeModel.prod_ta_status.list track by item.value"></select></li>
+                    <li><label>系统备份后日期</label><input
+                            type="text"
+                            ng-blur="checkItem(taTradeModel.bbackup_time)"
+                            ng-class="showError(taTradeModel.bbackup_time) ? 'textBox' : 'error'"
+                            ng-model="taTradeModel.bbackup_time.value"
+                            my-datetime datetime-id='bbackupTime'
+                            datetime-model='taTradeModel.bbackup_time'
+                            datetime-value='value' /></li>
+                </ul>
+                    </div>
+                <div id="ta-trade-bottom-content-out">
+                    <div id="ta-trade-bottom-title">
+                        产品参数设置
+                    </div>
+                    <div id="ta-trade-bottom-content">
+                        <ul>
+                            <li ng-repeat="prodTaCtrlstr in taTradeModel.prod_ta_ctrlstr.list">
+                                <input type="checkbox"
+                                       ng-model="prodTaCtrlstr.checked"/>
+                                <span>{{prodTaCtrlstr.name}}</span>
+
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+            </div>
+            <div class="ta-commit-button">
+                <button ng-click="submit()" class="btn">确    定</button>
+                <button class="btn">取    消</button>
+            </div>
+        </div>
+    </div>

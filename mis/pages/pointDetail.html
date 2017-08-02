@@ -1,0 +1,31 @@
+<div class="pointDetailPage page-body">
+	<div class="title" style="margin-bottom: 20px;">
+		<input
+		class="orderMgtPopInput3 datetimeInput"
+		type="text"
+		ng-model= "searchDetailObj.date_from.value"
+		my-datetime datetime-id="pointDetailSearch_from"
+		datetime-model='searchDetailObj.date_from'
+        has-time='true'
+        datetime-value='value'
+        placeholder="开始日期"
+		></input>
+		<span>~</span>
+		<input
+		class="orderMgtPopInput3 datetimeInput"
+		type="text"
+		ng-model= "searchDetailObj.date_to.value"
+		my-datetime datetime-id="pointDetailSearch_to"
+		datetime-model='searchDetailObj.date_to'
+        has-time='true'
+        datetime-value='value'
+        placeholder="结束日期"
+		></input>
+		<button class='btn' ng-click="search();">查询</button>
+		<input type='radio' ng-model='searchDetailObj.type.value' name="searchDate" value="" ng-change="typeChange()">全部</input>
+		<input type='radio' ng-model='searchDetailObj.type.value' name="searchDate" value="0" ng-change="typeChange()">获得积分</input>
+		<input type='radio' ng-model='searchDetailObj.type.value' name="searchDate" value="1" ng-change="typeChange()">使用积分</input>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>

@@ -1,0 +1,108 @@
+<div class="createCouponPage page-body">
+	<div class="prod-title">
+		<p class="couponTitle">优惠券</p>
+	</div>
+	<div class="coupon-pannel">
+		<ul>
+			<li>
+				<label>优惠券名称</label>
+				<span type="text">{{couponObj.title.value}}</span>
+			</li>
+			<li>
+				<label>外部ID</label>
+				<span type="text">{{couponObj.randId}}</span>
+			</li>
+			<li>
+				<label>优惠券类别</label>
+				<select disabled="disabled" 
+				ng-model="couponObj.categoryId.item"
+				ng-options="item as item.name for item in couponObj.categoryId.list track by item.value"
+				></select>
+			</li>
+			<li>
+				<label>面值</label>
+				<span type="text">{{couponObj.value.value}}</span>
+				<span>元</span>
+			</li>
+			<li>
+				<label>有效期</label>
+				<span type="text">{{couponObj.term.value}}</span>
+				<span>天</span>
+			</li>
+			<li>
+				<label>发行上限</label>
+				<span type="text">{{couponObj.countPlanned.value}}</span>
+				<span>张</span>
+			</li>
+			<li>
+				<label>发放开始时间</label>
+				<input
+				class="orderMgtPopInput3 datetimeInput"
+				type="text"
+				ng-model= "couponObj.issueBegin.value"
+				my-datetime datetime-id="couponIssueBegin"
+				datetime-model='couponObj.issueBegin'
+		        has-time='true'
+		        datetime-value='value'
+		        placeholder="发放开始时间"
+		        disabled="disabled"
+				></input>
+			</li>
+			<li>
+				<label>发放截止时间</label>
+				<input
+				class="orderMgtPopInput3 datetimeInput"
+				type="text"
+				ng-model= "couponObj.issueEnd.value"
+				my-datetime datetime-id="couponIssueEnd"
+				datetime-model='couponObj.issueEnd'
+		        has-time='true'
+		        datetime-value='value'
+		        placeholder="发放截止时间"
+		        disabled="disabled"
+				></input>
+			</li>
+			<li>
+				<label>产品投资期限</label>
+				<span type="text">{{couponObj.prodTerm.value}}</span>
+				<span>天</span>
+			</li>
+			<li>
+				<label>适用用户</label>
+				<select disabled="disabled" 
+				ng-model="couponObj.userGroup.item"
+				ng-options="item as item.name for item in couponObj.userGroup.list track by item.value"
+				></select>
+			</li>
+			<li>
+				<label>投资金额</label>
+				<span class="invest-limit" type="text">{{couponObj.minInvestAmount.value}}</span>
+				<span> {{investCondition}} </span>
+				<span class="invest-limit" type="text">{{couponObj.maxInvestAmount.value}}</span>
+				<span>元</span>
+			</li>
+			<li class="prodDesc" style="height: 150px;">
+				<label>体验金描述</label>
+				<textarea>{{couponObj.description.value}}</textarea>
+			</li>
+		</ul>
+	</div>
+	<div class="coupon-pannel">
+		<div>
+			<div class="selected-prod">
+				<label>所选择的产品:</label>
+				<div>
+					<div class="selected-item" ng-repeat='item in couponObj.productList.list | filter: selectedProductsFilter'>
+						<p>
+							<span>{{item.name}}</span>
+						</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="confirm-pannel">
+		<button class="prodBtn" ng-click="back();">返回</button>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+.DLC_Grid_Div{
+	display: inline-block;
+	position: absolute;
+	z-index: 99;
+	top: 50%;
+	left: 50%;
+	background-color: #FFF;
+}
+.DLC_Grid{
+	display: inline-block;
+	background-color: #FFF;
+}
+.DLC_Grid_Title{
+	height: 30px;
+	overflow: auto;
+	border-top: 1px solid #d4d4d4;
+	border-bottom: 1px solid #d4d4d4;
+	width: 100%;
+}
+
+.DLC_Grid_Details{
+	border-bottom: 1px solid #eee;
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+}
+
+.DLC_Grid_Title span, .DLC_Grid_Details span{
+	display: inline-block;
+	height: 30px;
+	cursor: default;
+	/*position: relative;*/
+	float: left;
+	border-right: 1px solid #eeeeee;
+	text-align: center;
+	text-overflow:ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}

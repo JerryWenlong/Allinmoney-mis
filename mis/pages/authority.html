@@ -1,0 +1,36 @@
+<div class="authority" style="display:inline-block; width: 100%;">
+<!-- 		<header class="page-title">
+			<span class="text">权限管理</span>
+		</header> -->
+		<div class="page-body">
+			<div class="tool-bar" style="margin-bottom: 20px;">
+				<button class="btn" ng-click="createRole();">新建</button>
+				<button class="btn" ng-click="saveAuth()">修改</button>
+			</div>
+
+			<div class="content">
+				<fieldset class="role">
+					<!-- <span class="title">角色列表</span> -->
+					<ul class="list">
+						<li ng-repeat="role in roleList" ng-click='selectRole(role)' ng-class="{'true':'selected'}[isCurrentSelectRole(role)]">
+							<span ng-model='role'>{{role.roleName}}</span>
+						</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="auth">
+					<div class="list" ng-init='initPermissionTree();'>
+						<div
+							data-treeview="true"
+							data-tree-id="authorityTree"
+							data-tree-model="currentRolePersmissionList"
+							data-node-id="permissionId"
+							data-node-label="permissionName"
+							data-node-children="children" 
+							data-able-checkbox='true'>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+</div>

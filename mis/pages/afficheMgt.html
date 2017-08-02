@@ -1,0 +1,14 @@
+<div class="afficheMgtPage page-body">
+	<div class="tool-bar" style="margin-bottom: 20px;">
+		<select class="search-select" style="" ng-model='searchType.value' ng-change='searchTypeChange();'>
+			<option ng-repeat="item in searchType.searchList" value="{{item.value}}">{{item.name}}</option>
+		</select>
+		<input type="search" class="searchbox" placeholder="搜索标题" ng-model='searchTitle' />
+		<button class="btn" ng-click="searchClick();">搜索</button>
+		<button class="btn" ng-click="goCreate();">新增</button>
+		<button class="btn" ng-click="goEdit();">修改</button>
+		<button class="btn" ng-click="deleteAffiche();">删除</button>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>

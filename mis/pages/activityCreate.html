@@ -1,0 +1,262 @@
+<div class="createCouponPage page-body">
+	<div class="prod-title">
+		<p class="couponTitle">活动</p>
+	</div>
+	<div class="coupon-pannel">
+		<ul>
+			<li>
+				<label>活动名称</label>
+				<input type="text" ng-model="activity.title.value" ng-blur="validate(activity.title)"></input>
+				<span ng-show="activity.title.error" class="tip">{{activity.title.msg}}</span>
+			</li>
+			<li>
+				<label>活动开始时间</label>
+				<input
+				class="orderMgtPopInput3 datetimeInput"
+				type="text"
+				ng-model= "activity.beginAt.value"
+				datetime-model="activity.beginAt.value"
+				my-datetime datetime-id="activityBegin"
+				has-time="true"
+				placeholder="开始时间"
+				ng-blur="validate(activity.beginAt)"
+				></input>
+				<span ng-show="activity.beginAt.error" class="tip">{{activity.beginAt.msg}}</span>
+			</li>
+			<li>
+				<label>活动结束时间</label>
+				<input
+				class="orderMgtPopInput3 datetimeInput"
+				type="text"
+				ng-model= "activity.endAt.value"
+				datetime-model="activity.endAt.value"
+				my-datetime datetime-id="activityEnd"
+				has-time="true"
+				placeholder="结束时间"
+				ng-blur="validate(activity.endAt)"
+				></input>
+				<span ng-show="activity.endAt.error" class="tip">{{activity.endAt.msg}}</span>
+			</li>
+			<li class="prodDesc" style="height: 150px;">
+				<label>描述</label>
+				<textarea ng-model="activity.description.value" ng-blur="validate(activity.description)"></textarea>
+				<span ng-show="activity.description.error" class="tip">{{activity.description.errorMsg}}</span>
+			</li>
+			
+			<li>
+				<label>奖励优惠券</label>
+				<button ng-click="openPannel(1)">选择</button>
+			</li>
+			<li>
+				<label>奖励注册送积分</label>
+				<button ng-click="openPannel(2)">选择</button>
+			</li>
+			<li>
+				<label>奖励邀请有礼积分</label>
+				<button ng-click="openPannel(3)">选择</button>
+			</li>
+			<li>
+				<label>奖励实物奖品</label>
+				<button ng-click="openPannel(5)">选择</button>
+			</li>
+			<li>
+				<label>参与产品</label>
+				<button ng-click="openPannel(4)">选择</button>
+			</li>
+		</ul>
+	</div>
+	<div class="coupon-pannel">
+		<ul>
+			<li>
+				<label>参与的客户端</label>
+				<my-dropdown-check-list
+				options-data="activity.clients.list"
+				width='240'
+				height='150'
+				id='activityClients'
+				></my-dropdown-check-list>
+			</li>
+			<li>
+				<label>活动形式</label>
+				<my-dropdown-check-list
+				options-data="activity.scenarios.list"
+				width='240'
+				height='300'
+				id='activityScenarios'
+				></my-dropdown-check-list>
+			</li>
+			<li>
+				<label>选择渠道</label>
+				<button ng-click="openPannel(6)">选择</button>
+			</li>
+		
+			<li>
+				<label>要求首次参与</label>
+				<input type="checkbox" ng-model="activity.admittances.firstTrialFlag.value"></input>
+			</li>
+			<li>
+				<label>允许渠道用户参与</label>
+				<input type="checkbox" ng-model="activity.admittances.agencyAllowed.value"></input>
+			</li>
+			<li>
+				<label>最低投资金额</label>
+				<input type="text" ng-model="activity.admittances.investAmountMin.value" ng-blur="validate(activity.admittances.investAmountMin)"></input>
+			</li>
+			<li>
+				<label>最大投资金额</label>
+				<input type="text" ng-model="activity.admittances.investAmountMax.value" ng-blur="validate(activity.admittances.investAmountMax)"></input>
+			</li>
+			<li>
+				<label>最低充值金额</label>
+				<input type="text" ng-model="activity.admittances.chargeAmountMin.value" ng-blur="validate(activity.admittances.chargeAmountMin)"></input>
+			</li>
+			<li>
+				<label>最高充值金额</label>
+				<input type="text" ng-model="activity.admittances.chargeAmountMax.value" ng-blur="validate(activity.admittances.chargeAmountMax)"></input>
+			</li>
+			<li>
+				<label>到期本息金额-下限</label>
+				<input type="text" ng-model="activity.admittances.interestOnPrincipal.value" ng-blur="validate(activity.admittances.interestOnPrincipal)"></input>
+			</li>
+		</ul>
+	</div>
+	<div class="confirm-pannel">
+		<button class="prodBtn" ng-click="save();">提交</button>
+		<button class="prodBtn" ng-click="cancel();">返回</button>
+	</div>
+</div>
+
+<div class="popPannel" ng-show="showPannel_1.value">
+	<div class="titleDiv">
+		<div class="misPopupHeader"></div>
+		<div class="closeDiv">
+			<button class="closeDivBtn" ng-click="closePannel(1)"></button>
+		</div>
+	</div>
+	<div class="infoDiv">
+		<p class="selected-info">已选择的优惠券:</p>
+		<div class="selected-item" ng-repeat='item in activity.awards.coupons'>
+			<p>
+				<span>{{item.name}}</span>
+				<span class="closeDivBtn" ng-click="delCoupon(item);"></span>
+			</p>
+		</div>
+	</div>
+	<div class="toolBar">
+		<button class="btn" ng-click="addCoupon()">添加</button>
+	</div>
+	<div class="myGrid" ui-grid="gridOptions_1" ui-grid-selection style="width: auto;height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>
+<div class="popPannel" ng-show="showPannel_2.value">
+	<div class="titleDiv">
+		<div class="misPopupHeader"></div>
+		<div class="closeDiv">
+			<button class="closeDivBtn" ng-click="closePannel(2)"></button>
+		</div>
+	</div>
+	<div class="infoDiv">
+		<p class="selected-info">已选择的注册送积分:</p>
+		<div class="selected-item" ng-repeat='item in activity.pointSignupList'>
+			<p>
+				<span>{{item.name}}</span>
+				<span class="closeDivBtn" ng-click="delPointSignup(item);"></span>
+			</p>
+		</div>
+	</div>
+	<div class="toolBar">
+		<button class="btn" ng-click="addPointSignup()">添加</button>
+	</div>
+	<div class="myGrid" ui-grid="gridOptions_2" ui-grid-selection style="width: auto;height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>
+<div class="popPannel" ng-show="showPannel_3.value">
+	<div class="titleDiv">
+		<div class="misPopupHeader"></div>
+		<div class="closeDiv">
+			<button class="closeDivBtn" ng-click="closePannel(3)"></button>
+		</div>
+	</div>
+	<div class="infoDiv">
+		<p class="selected-info">已选择的邀请有礼:</p>
+		<div class="selected-item" ng-repeat='item in activity.pointInviterList'>
+			<p>
+				<span>{{item.name}}</span>
+				<span class="closeDivBtn" ng-click="delPointInviter(item);"></span>
+			</p>
+		</div>
+	</div>
+	<div class="toolBar">
+		<button class="btn" ng-click="addPointInviter()">添加</button>
+	</div>
+	<div class="myGrid" ui-grid="gridOptions_3" ui-grid-selection style="width: auto;height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>
+<div class="popPannel" ng-show="showPannel_4.value">
+	<div class="titleDiv">
+		<div class="misPopupHeader"></div>
+		<div class="closeDiv">
+			<button class="closeDivBtn" ng-click="closePannel(4)"></button>
+		</div>
+	</div>
+	<div class="infoDiv">
+		<p class="selected-info">已选择的产品:</p>
+		<div class="selected-item" ng-repeat='item in activity.admittances.products'>
+			<p>
+				<span>{{item.name}}</span>
+				<span class="closeDivBtn" ng-click="delProd(item);"></span>
+			</p>
+		</div>
+	</div>
+	<div class="toolBar">
+		<button class="btn" ng-click="addProd()">添加</button>
+	</div>
+	<div class="myGrid" ui-grid="gridOptions_4" ui-grid-selection style="width: auto;height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>
+
+<div class="popPannel" ng-show="showPannel_5.value">
+	<div class="titleDiv">
+		<div class="misPopupHeader"></div>
+		<div class="closeDiv">
+			<button class="closeDivBtn" ng-click="closePannel(5)"></button>
+		</div>
+	</div>
+	<div class="infoDiv">
+		<p class="selected-info">已选择的实物奖品:</p>
+		<div class="selected-item" ng-repeat='item in activity.awards.commodities'>
+			<p>
+				<span>{{item.name}}</span>
+				<span class="closeDivBtn" ng-click="delCommondity(item);"></span>
+			</p>
+		</div>
+	</div>
+	<div class="toolBar">
+		<button class="btn" ng-click="addCommondity()">添加</button>
+	</div>
+	<div class="myGrid" ui-grid="gridOptions_5" ui-grid-selection style="width: auto;height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>
+
+<div class="popPannel" ng-show="showPannel_6.value">
+	<div class="titleDiv">
+		<div class="misPopupHeader"></div>
+		<div class="closeDiv">
+			<button class="closeDivBtn" ng-click="closePannel(6)"></button>
+		</div>
+	</div>
+	<div class="infoDiv">
+		<p class="selected-info">已选择的渠道:</p>
+		<div class="selected-item" ng-repeat='item in activity.agencies'>
+			<p>
+				<span>{{item.name}}</span>
+				<span class="closeDivBtn" ng-click="delAgency(item);"></span>
+			</p>
+		</div>
+	</div>
+	<div class="toolBar">
+		<button class="btn" ng-click="addAgency()">添加</button>
+	</div>
+	<div class="myGrid" ui-grid="gridOptions_6" ui-grid-selection style="width: auto;height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>

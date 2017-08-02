@@ -1,0 +1,23 @@
+.userDetail .info-block{
+	border: 1px solid #DDD;
+	margin-bottom: 10px;
+}
+.userDetail .info-title{
+	padding-left: 20px;
+}
+.userDetail .info-block ul{
+	display: inline-block;
+	width: 100%;
+}
+.userDetail .info-block li{
+	width: 50%;
+	display: inline-block;
+	float: left;
+}
+.userDetail .info-block li label{
+	margin-left: 80px;
+	margin-right: 10px;
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+}

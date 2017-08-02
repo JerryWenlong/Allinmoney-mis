@@ -1,0 +1,34 @@
+<div class="page-body">
+	<div class="tool-bar">
+		<input type="search" class="searchbox" placeholder="请输入电话号码查询" ng-model='searchStr'>
+		<button class="btn" ng-click="query()">查询</button>
+	</div>
+	<div style="overflow-x:auto;overflow-y:hidden;-ms-overflow-x:auto;-ms-overflow-y:hidden;height: 392px;" >
+		<ul style="width: 804px;">
+			<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+				<ul class="fundAuditDetailTitle">
+					<li style="width: 160px">手机号</li>
+					<li style="width: 400px">短信</li>
+					<li style="width: 120px">发送日期</li>
+					<li style="width: 120px">发送时间</li>
+				</ul>
+			</li>
+			<li style="height: 360px;font-size:13px;">
+				<ul class="fundAuditDetails" ng-repeat="obj in pageListData" class="fundAuditDetails" style="width: 100%;">
+					<li style="width: 160px">{{obj.smsObj.cellphone}}</li>
+
+					<div style="position: relative;" ng-mousemove="obj.smsObj.prodNameShow = true" ng-mouseleave="obj.smsObj.prodNameShow = false">
+						<li style="width: 400px;">{{obj.smsObj.message}}</li>
+						<span class="triangle1" ng-show="obj.smsObj.message != '' && obj.smsObj.prodNameShow" style="margin-left: -200px;"></span>
+						<span style="margin-left:-400px; width: 400px;height: auto; text-align: left;" ng-show="obj.smsObj.message != '' && obj.smsObj.prodNameShow" class="bubble1">{{obj.smsObj.message}}</span>
+					</div>
+					<li style="width: 120px">{{obj.smsObj.sendDate}}</li>
+					<li style="width: 120px">{{obj.smsObj.sendTime}}</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div>
+		<div style="width:80%"><page conf="myConf" click-fn="changePage"></page></div>
+	</div>
+</div>

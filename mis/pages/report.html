@@ -1,0 +1,23 @@
+<div class="page-body edit-page">
+    <div class="page-title">
+        <p class="">报表查询</p>
+    </div>
+    <div style="height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;">
+        <label>选择报表:</label>
+        <select style="    
+                font-size: 14px;
+                font-weight: bold;
+                color: #625548;" 
+            ng-model="currentSelect"
+            ng-options="item as item.name for item in reports track by item.id"
+            ng-change="selectReport()"
+        ></select>
+    </div>
+    <div id="searchPannel" class="search-pannel"></div>
+    <button class="btn" ng-click="search()">搜索</button>
+    <button class="btn" ng-click="download()">下载</button>
+</div>

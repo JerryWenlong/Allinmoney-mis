@@ -1,0 +1,13 @@
+.my-searchdown{
+	display: inline-block;
+	width: 160px;
+	height: auto;
+	position: relative;
+}
+.my-searchdown input{
+	width: 100%;
+}
+.my-searchdown ul{
+	display: inline-block;
+	width: 100%;
+}

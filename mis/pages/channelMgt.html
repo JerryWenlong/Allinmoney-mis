@@ -1,0 +1,15 @@
+<div class="page-body">
+	<div class="tool-bar">
+		<select class="search-select" ng-model='searchModel.item'
+			 ng-options="item as item.name for item in searchModel.searchList track by item.value" value="{{item.value}}" >{{item.name}}>
+		</select>
+		<input type="search" class="searchbox" placeholder="请输入 渠道名/电话 查询" ng-model='searchStr'>
+		
+		<button class="btn" ng-click="query()">查询</button>
+		<button class="btn" ng-click="createChannel()">新增</button>
+		<button class="btn" ng-click="setActivity();">设置活动</button>
+		<button class="btn" ng-click="showInvestList();">投资记录</button>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>

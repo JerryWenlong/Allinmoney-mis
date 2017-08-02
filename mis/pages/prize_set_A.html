@@ -1,0 +1,41 @@
+<div class="activityMgtPage page-body">
+	<div class="tool-bar" style="margin-bottom: 20px;">
+		<label class="text">活动进度:</label>
+		<select class="search-select"
+		ng-model = "searchModel.item"
+		ng-options="item as item.name for item in searchModel.list track by item.value"
+		ng-change = "changeProgressSearch()";
+		></select>
+		<button class="btn" ng-click="setIndex()">设置上证指数</button>
+		<button class="btn" ng-click="setLuckyNumber()">设置中奖号码</button>
+		<button class="btn" ng-click="submitEvent()">数据处理</button>
+	</div>
+	<div style="overflow-x:auto;overflow-y:hidden;-ms-overflow-x:auto;-ms-overflow-y:hidden;height: 392px;" >
+		<ul style="width: 727px">
+			<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+				<ul class="fundAuditDetailTitle">
+					<li style="width: 30px;height: 30px;"></li>
+					<li style="width: 100px">期数</li>
+					<li style="width: 100px">活动进度</li>
+					<li style="width: 150px">满额时间</li>
+					<li style="width: 120px">上证指数</li>
+					<li style="width: 120px">中奖号码</li>
+					<li style="width: 100px">已开奖</li>
+				</ul>
+			</li>
+			<li style="height: 360px;font-size:13px;">
+				<ul class="fundAuditDetails" ng-repeat="obj in pageListData" class="fundAuditDetails" style="width: 100%;">
+					<li style="width: 30px"><input type="checkbox" name="selectPhase" ng-model="obj.self._selected" ng-change="changeSelect(obj);"></input></li>
+					<li style="width: 100px">{{obj.self.phaseIndex}}</li>
+					<li style="width: 100px; cursor: pointer;" ng-click="showDetail(obj.phaseIndex)">{{obj.self.progressStr}}</li>
+					<li style="width: 150px">{{obj.self.modifiedAt}}</li>
+					<li style="width: 120px">{{obj.self.stockIndex}}</li>
+					<li style="width: 120px">{{obj.self.hasSetLuckgNumber}}</li>
+					<li style="width: 100px">{{obj.self.hasSubmit}}</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<page conf="myConf" click-fn="changePage"></page>
+	<button class="btn" style="float: right;margin-right: 10px;" ng-click="back();">返回</button>
+</div>

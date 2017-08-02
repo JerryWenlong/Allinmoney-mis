@@ -1,0 +1,113 @@
+<div class="activityAdd activityLotteryPage page">
+	<div class="title">
+		<div class="left">
+			<p>
+				<label>活动名称</label>
+				<input type="text" ng-model="activityModel.activityTitle" ng-disabled="hideMenu" ng-class="{'false':'error'}[validateTitle]" ng-blur="checkTitle()"></input>
+			</p>
+			<p>
+				<label>生效日期</label>
+				<input ng-disabled="hideMenu"
+				type="text"
+				ng-model= "activityModel.beginAt"
+				my-datetime datetime-id="lotteryBeginAt"
+				datetime-model='activityModel.beginAt'
+		        has-time='true'
+		        ng-class="{'false':'error'}[validateBeginAt]"
+		        ng-blur="checkBeginTime()"
+				></input>
+				<span>~</span>
+				<input ng-disabled="hideMenu"
+				type="text"
+				ng-model= "activityModel.endAt"
+				my-datetime datetime-id="lotteryEndAt"
+				datetime-model='activityModel.endAt'
+		        has-time='true'
+		        ng-class="{'false':'error'}[validateEndAt]"
+		         ng-blur="checkEndTime()"
+				></input>
+			</p>
+			<p>
+				<label>活动类型</label>
+				<select 
+				ng-disabled="hideMenu"
+				ng-model = "activityModel.activityType.item"
+				ng-options="item as item.name for item in activityModel.activityType.list track by item.value"
+				></select>
+			</p>
+		</div>
+		<div class="right">
+			<p>
+				<button class="btn" ng-show="showComponentIndexBtn" ng-click="gotoSet();">开奖</button>
+			</p>
+			<p>
+				<button class="btn" ng-show="showPrizeRecordBtn" ng-click="prizeRecord();">中奖记录</button>
+			</p>
+		</div>
+	</div>
+	<div class="leftPannel">
+		<p>
+			<label class="pannel-title">奖池设置</label>
+		</p>
+		<p class="menu" ng-hide="hideMenu">
+			<button ng-click="popPond();" class="btn">插入</button>
+			<button ng-click="editPond();" class="btn">修改</button>
+			<button ng-click="removePond();" class="btn">删除</button>
+		</p>
+		<table class="lotteryPoundTable">
+			<thead>
+				<tr>
+					<!-- <th class="col1"><span></span></th> -->
+					<th><label>奖池名称</label></th>
+					<th><label>抽奖区间</label></th>
+				</tr>
+			</thead>
+			<tbody id="lotteryPondTableBody">
+				<tr ng-repeat="pond in activityModel.lotteryPonds" ng-click='selectPond(pond, $event)'>
+					<!-- <td class="col1">
+						<input type="checkbox" ng-click='selectPond(pond, $event)'></input>
+					</td> -->
+					<td class="col2">
+						<span>{{pond.pondTitle}}</span>
+					</td>
+					<td class="col3">
+						<span>{{pond.investAmountMin}}</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="rightPannel" ng-show='showPrize'>
+		<p>
+			<label class="pannel-title">奖品设置</label>
+		</p>
+		<p class="menu" ng-hide="hideMenu">
+			<button ng-click="popPrize();" class="btn">增加</button>
+			<button ng-click="editPrize();" class="btn">修改</button>
+			<button ng-click="removePrize();" class="btn">删除</button>
+		</p>
+		<table class="lotteryPoundTable">
+			<thead>
+				<tr>
+					<th class="col1"  ng-hide="hideMenu"><span></span></th>
+					<th><label>奖品设定</label></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="prize in currentPond.lotteryPrizes">
+					<td class="col1"  ng-hide="hideMenu">
+						<input type="checkbox" ng-click='selectPrize(prize, $event)'></input>
+					</td>
+					<td>
+						<span>{{prize.prizeName}}</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="buttonPannel">
+		<button ng-click="save();" class="btn" ng-hide="hideMenu">保存</button>
+		<button ng-click="cancel();" class="btn">取消</button>
+	</div>
+</div>

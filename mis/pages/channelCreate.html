@@ -1,0 +1,17 @@
+<div class="content-body">
+	<!-- <div class="content-title">{{title}}</div> -->
+	<div class="content">
+		<ul>
+			<li><label>渠道名</label><input 
+			ng-class="showError(accountModel.name) ? 'textBox acc-textbox' : 'error'"
+			ng-blur="checkItem(accountModel.name)" 
+			ng-model="accountModel.name.value" type="text"></li>
+			<li><label>手机号</label><input 
+			ng-class="showError(accountModel.cellphone) ? 'textBox acc-textbox' : 'error'"
+			ng-blur="checkItem(accountModel.cellphone)"
+			ng-model="accountModel.cellphone.value" type="text"></li>
+		</ul>
+		<button ng-click="submit()" class="btn">确定</button>
+		<button ng-click="cancel()" class="btn">取消</button>
+	</div>
+</div>

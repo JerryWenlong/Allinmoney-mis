@@ -1,0 +1,114 @@
+<div class='out'>
+	<div class='header'>清算详细数据</div>
+	<div class='content'>
+		<div class='content-left'>
+			<div class='process-control-button'>
+				<button class="btn settle-btn" ng-show='!hasSettled' ng-click='doSettle();'>开&nbsp;&nbsp;&nbsp;&nbsp;始</button>
+				<button class="btn settle-btn" ng-show='hasSettled' ng-click='doSettle();'>重&nbsp;&nbsp;&nbsp;&nbsp;做</button>
+				<button class="btn settle-btn" ng-click='clear();'>清&nbsp;&nbsp;&nbsp;&nbsp;除</button>
+			</div>
+      <div class='process-flow' ng-show='flow_flag==1'>
+        <ol>
+            <li class="process-flow-deactive" ng-class='phase_flag == 1 ? "process-flow-active" : "process-flow-deactive"' >01文件:数据同步</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 2 ? "process-flow-active" : "process-flow-deactive"' >01文件:数据收集</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 3 ? "process-flow-active" : "process-flow-deactive"' >01文件:数据生成</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 4 ? "process-flow-active" : "process-flow-deactive"' >01文件:数据解析</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 5 ? "process-flow-active" : "process-flow-deactive"' >01文件:数据处理</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 6 ? "process-flow-active" : "process-flow-deactive"' >01文件:保存数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 7 ? "process-flow-active" : "process-flow-deactive"' >01文件:发送数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 8 ? "process-flow-active" : "process-flow-deactive"' >01文件:验证数据</li>
+        </ol>
+			</div>
+	    <div class='process-flow' ng-show='flow_flag==2'>
+	      <ol>
+	          <li class="process-flow-deactive" ng-class='phase_flag == 1 ? "process-flow-active" : "process-flow-deactive"' >02文件:数据同步</li>
+	          <li class="process-flow-deactive" ng-class='phase_flag == 2 ? "process-flow-active" : "process-flow-deactive"' >02文件:数据收集</li>
+	          <li class="process-flow-deactive" ng-class='phase_flag == 3 ? "process-flow-active" : "process-flow-deactive"' >02文件:数据生成</li>
+	          <li class="process-flow-deactive" ng-class='phase_flag == 4 ? "process-flow-active" : "process-flow-deactive"' >02文件:数据解析</li>
+	          <li class="process-flow-deactive" ng-class='phase_flag == 5 ? "process-flow-active" : "process-flow-deactive"' >02文件:数据处理</li>
+	          <li class="process-flow-deactive" ng-class='phase_flag == 6 ? "process-flow-active" : "process-flow-deactive"' >02文件:保存数据</li>
+	          <li class="process-flow-deactive" ng-class='phase_flag == 7 ? "process-flow-active" : "process-flow-deactive"' >02文件:发送数据</li>
+	          <li class="process-flow-deactive" ng-class='phase_flag == 8 ? "process-flow-active" : "process-flow-deactive"' >02文件:验证数据</li>
+	      </ol>
+	    </div>
+      <div class='process-flow' ng-show='flow_flag==3'>
+        <ol>
+            <li class="process-flow-deactive" ng-class='phase_flag == 1 ? "process-flow-active" : "process-flow-deactive"' >03文件:数据同步</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 2 ? "process-flow-active" : "process-flow-deactive"' >03文件:数据收集</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 3 ? "process-flow-active" : "process-flow-deactive"' >03文件:数据生成</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 4 ? "process-flow-active" : "process-flow-deactive"' >03文件:数据解析</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 5 ? "process-flow-active" : "process-flow-deactive"' >03文件:数据处理</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 6 ? "process-flow-active" : "process-flow-deactive"' >03文件:保存数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 7 ? "process-flow-active" : "process-flow-deactive"' >03文件:发送数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 8 ? "process-flow-active" : "process-flow-deactive"' >03文件:验证数据</li>
+        </ol>
+      </div>
+      <div class='process-flow' ng-show='flow_flag==4'>
+        <ol>
+            <li class="process-flow-deactive" ng-class='phase_flag == 1 ? "process-flow-active" : "process-flow-deactive"' >04文件:数据同步</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 2 ? "process-flow-active" : "process-flow-deactive"' >04文件:数据收集</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 3 ? "process-flow-active" : "process-flow-deactive"' >04文件:数据生成</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 4 ? "process-flow-active" : "process-flow-deactive"' >04文件:数据解析</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 5 ? "process-flow-active" : "process-flow-deactive"' >04文件:数据处理</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 6 ? "process-flow-active" : "process-flow-deactive"' >04文件:保存数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 7 ? "process-flow-active" : "process-flow-deactive"' >04文件:发送数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 8 ? "process-flow-active" : "process-flow-deactive"' >04文件:验证数据</li>
+        </ol>
+      </div>
+	    <div class='process-flow' ng-show='flow_flag==5'>
+        <ol>
+            <li class="process-flow-deactive" ng-class='phase_flag == 1 ? "process-flow-active" : "process-flow-deactive"' >05文件:数据同步</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 2 ? "process-flow-active" : "process-flow-deactive"' >05文件:数据收集</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 3 ? "process-flow-active" : "process-flow-deactive"' >05文件:数据生成</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 4 ? "process-flow-active" : "process-flow-deactive"' >05文件:数据解析</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 5 ? "process-flow-active" : "process-flow-deactive"' >05文件:数据处理</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 6 ? "process-flow-active" : "process-flow-deactive"' >05文件:保存数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 7 ? "process-flow-active" : "process-flow-deactive"' >05文件:发送数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 8 ? "process-flow-active" : "process-flow-deactive"' >05文件:验证数据</li>
+        </ol>
+      </div>
+      <div class='process-flow' ng-show='flow_flag==6'>
+        <ol>
+            <li class="process-flow-deactive" ng-class='phase_flag == 1 ? "process-flow-active" : "process-flow-deactive"' >06文件:数据同步</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 2 ? "process-flow-active" : "process-flow-deactive"' >06文件:数据收集</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 3 ? "process-flow-active" : "process-flow-deactive"' >06文件:数据生成</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 4 ? "process-flow-active" : "process-flow-deactive"' >06文件:数据解析</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 5 ? "process-flow-active" : "process-flow-deactive"' >06文件:数据处理</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 6 ? "process-flow-active" : "process-flow-deactive"' >06文件:保存数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 7 ? "process-flow-active" : "process-flow-deactive"' >06文件:发送数据</li>
+            <li class="process-flow-deactive" ng-class='phase_flag == 8 ? "process-flow-active" : "process-flow-deactive"' >06文件:验证数据</li>
+        </ol>
+      </div>
+		</div>
+		<div class='content-right'>
+			<div class='process-log'>
+                <ol id="settle-log">
+
+                </ol>
+                <div id="msg_end" style="height:0px; overflow:hidden"></div>
+			</div>
+			<div class='process-result'>
+                <ol ng-show="showError">
+                    <li>
+                        {{settleFlowError}}
+                    </li>
+                    <li ng-repeat="item in accErrorResults" ng-show="item.count > 0">
+                        {{item.name}}有{{item.count}}个错误
+                    </li>
+                    <li ng-repeat="item in bizErrorResults" ng-show="item.count > 0">
+                        {{item.name}}有{{item.count}}个错误
+                    </li>
+                    <li ng-repeat="item in shrErrorResults" ng-show="item.count > 0">
+                      {{item.name}}有{{item.count}}个错误
+                    </li>
+                    <li ng-repeat="item in dvdErrorResults" ng-show="item.count > 0">
+                      {{item.name}}有{{item.count}}个错误
+                    </li>
+                </ol>
+			</div>
+			<div>
+				<button class="btn settle-btn" ng-click='handelError();' ng-disabled='disableHandleError' >处&nbsp;&nbsp;&nbsp;&nbsp;理</button>
+			</div>
+		</div>
+	</div>
+</div>

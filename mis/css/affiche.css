@@ -1,0 +1,59 @@
+.afficheCreatePage ul li {
+	display: inline-block;
+	line-height: 42px;
+	width: 100%;
+}
+.afficheCreatePage ul li label{
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+}
+.afficheCreatePage ul li select {
+	border: 0;
+    outline: 1px solid #e7e7e7;
+    background-color: white;
+    display: inline-block;
+    height: 24px;
+    width: 242px;
+    margin-left: 9px;
+}
+.afficheCreatePage ul li input[type='radio']{
+	margin-left: 20px;
+}
+.afficheCreatePage ul li input[type='text']{
+    width: 242px;
+    margin-left: 8px;
+    height: 25px;
+    border: 1px solid #e7e7e7;
+}
+.afficheCreatePage ul li .plusDiv {
+	margin-left: 130px;
+	margin-top: -20px;
+	position:relative;
+	height:90px;
+	width:242px;
+	border-radius: 3px;
+	border:5px dashed #E7E7E7;
+}
+.afficheCreatePage ul li .fileInput {
+	opacity:0;
+	border:1px solid red;
+	margin:0;
+	padding:0;
+	position:absolute;
+	height:90px;
+	width:242px;
+}
+.afficheCreatePage ul li textarea{
+    font-size: 14px;
+    height: 150px;
+    width: 242px;
+    vertical-align: text-top;
+    text-align: left;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid #e7e7e7;
+    padding: 10 10px;
+    resize: none;
+    margin-left: 8px;
+}

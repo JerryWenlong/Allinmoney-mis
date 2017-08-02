@@ -1,0 +1,74 @@
+<div id="out">
+    <div id="out-right">
+<!--         <div id="top">
+            <span class="span1">产品上架</span> —— <span class="span2">产品限额设置</span>
+        </div> -->
+        <div id="bottom">
+            <div id="left">
+                <ul>
+                    <li>产品申请</li>
+                    <li>初审管理</li>
+                    <li>二次申请</li>
+                    <li>财务审核</li>
+                    <li>终审管理</li>
+                </ul>
+            </div>
+            <div id="right">
+                <div class="right-top">
+                    <div class="right-top-content noWrap"  ng-show="divFlag==0">
+                        <ul>
+                            <li><label>产品TA</label><select
+                                    ng-blur="checkItem(prodQuotaModel.ta_no)"
+                                    ng-class="showError(prodQuotaModel.ta_no) ? 'textBox' : 'error'"
+                                    ng-model="prodQuotaModel.ta_no.item"
+                                    ng-options="item as item.name  for item in prodQuotaModel.ta_no.list track by item.value"></select></li>
+                            <li><label>产品代码</label><select
+                                    ng-blur="checkItem(prodQuotaModel.prod_code)"
+                                    ng-class="showError(prodQuotaModel.prod_code) ? 'textBox' : 'error'"
+                                    ng-model="prodQuotaModel.prod_code.item"
+                                    ng-options="item as item.name  for item in prodQuotaModel.prod_code.list track by item.value"></select></li>
+                            <li><label>允许营业区域</label><select disabled="disabled"
+                                    ng-blur="checkItem(prodQuotaModel.branch_no)"
+                                    ng-class="showError(prodQuotaModel.branch_no) ? 'textBox' : 'error'"
+                                    ng-model="prodQuotaModel.branch_no.value">
+                                <option value="8888">8888</option>
+                            </select></li>
+                            <li><label>已用小号认购数</label><input
+                                    ng-model="prodQuotaModel.used_sub_num.value"
+                                    ng-class="showError(prodQuotaModel.used_sub_num) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(prodQuotaModel.used_sub_num)" type="text" /></li>
+                            <li><label>小号认购数上限</label><input
+                                    ng-model="prodQuotaModel.max_sub_num.value"
+                                    ng-class="showError(prodQuotaModel.max_sub_num) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(prodQuotaModel.max_sub_num)" type="text" /></li>
+                            <li><label>已用额度</label><input
+                                    ng-model="prodQuotaModel.current_quota.value"
+                                    ng-class="showError(prodQuotaModel.current_quota) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(prodQuotaModel.current_quota)" type="text" /></li>
+                            <li><label>总额度</label><input
+                                    ng-model="prodQuotaModel.enable_quota.value"
+                                    ng-class="showError(prodQuotaModel.enable_quota) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(prodQuotaModel.enable_quota)" type="text" /></li>
+                            <li style='display: flex;'>
+                                <label>允许委托方式</label>
+                                <my-dropdown-check-list 
+                                options-data= "prodQuotaModel.en_entrust_type.list"
+                                width="140"
+                                height="300"
+                                ></my-dropdown-check-list>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="right-top-button">
+                        <!--<button ng-disabled="preBtn" id="preBtn" ng-click="preContent()">上一页</button>-->
+                        <!--<button ng-disabled="nextBtn" id="nextBtn" ng-click="nextContent()">下一页</button>-->
+                    </div>
+                </div>
+                <div id="right-bottom">
+                    <button ng-click="submit()">确    定</button>
+                    <button>取    消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

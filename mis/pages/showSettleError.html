@@ -1,0 +1,137 @@
+<div class='out'>
+<!--     <div class='header'>处理错误</div> -->
+    <div class='content'>
+        <p class="settle-error-tip1">错误类型:{{currentErrorName}}</p>
+        <div class="table-commit-btns">
+            <button ng-click="saveEdit();" class="btn">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+            <button ng-click="goBack();" class="btn">返&nbsp;&nbsp;&nbsp;&nbsp;回</button>
+        </div>
+        <div class="table-title">
+              <div ng-show="overflow_pre" style="float: left;">
+                <div class="trapezoid-1"><button ng-click="prePart()" style="margin-left:0;font-size: 16px;border:none;width: 100px;background-color: transparent;">上一页</button></div>
+                <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.acc_type1.hasError" style="float: left;">
+                <div class="trapezoid-1">
+                    <div ng-click="getErrorPage('acc_type1')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">清算本地数据库不存在TA返回的帐号</div>
+                </div>
+                <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.acc_type2.hasError" style="float: left;">
+                <div class="trapezoid-1">
+                    <div ng-click="getErrorPage('acc_type2')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">TA返回码不为0000</div>
+                </div>
+                <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.acc_type3.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('acc_type3')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">02文件不存在清算本地数据库的帐号</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+              
+              <div class='error_type' ng-show="exceptionObj.acc_type4.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('acc_type4')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">无效的交易日期</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+              
+              <div class='error_type' ng-show="exceptionObj.acc_type5.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('acc_type5')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">02文件中存在无效字段</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.biz_type1.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('biz_type1')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">交易未支付</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.biz_type2.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('biz_type2')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">支付没有对应的交易</div></div>
+                  <div class="trapezoid-2"></div>
+              </div>
+
+              <div ng-show="overflow_next" style="float: left;">
+                  <div class="trapezoid-1">
+                      <button ng-click="nextPart()" style="margin-left:0;font-size: 16px;border:none;width: 100px;background-color: transparent;">下一页</button>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.biz_type3.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('biz_type3')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">03文件导出过程中发现有账户和份额不匹配</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.biz_type4.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('biz_type4')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">用户银行卡无流水</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.biz_type5.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('biz_type5')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">异常交易</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.biz_type6.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('biz_type6')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">04文件解析过程中发现不匹配的账户和份额</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+              <!-- taShareError-->
+              <div class='error_type' ng-show="exceptionObj.shr_type1.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('shr_type1')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">对应的account不存在</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+              
+              <div class='error_type' ng-show="exceptionObj.shr_type2.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('shr_type2')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">对应的trans account不存在	</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+              
+              <div class='error_type' ng-show="exceptionObj.shr_type3.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('shr_type3')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">对应的production不存在</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+
+              <div class='error_type' ng-show="exceptionObj.shr_type4.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('shr_type4')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">TA_TOTAL_SHARE_LESS_THAN_AVAILABLE_SHARE 错误</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+              <!-- taDividendError -->
+              <div class='error_type' ng-show="exceptionObj.dvd_type.hasError" style="float: left;">
+                  <div class="trapezoid-1">
+                      <div ng-click="getErrorPage('dvd_type')" style="width: 100px;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;">DIVIDEND对应的account不存在	</div>
+                  </div>
+                  <div class="trapezoid-2"></div>
+              </div>
+        </div>
+
+        <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav class="flow-error-table"></div>
+        <page conf="myConf" click-fn="changePage"></page>
+    </div>
+</div>

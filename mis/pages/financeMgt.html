@@ -1,0 +1,115 @@
+<div class="page-body">
+	<div class="tool-bar">
+		<input type="search" class="searchbox" ng-model='keyWord' placeholder="请输入用户姓名查询">
+		<button class="btn" ng-click="query()">查询</button>
+		<button class="btn" ng-click="advanceQuery()">高级查询</button>
+		<div ng-show="thirdPartyPayFlowFlag" style="float:right;margin-right:16px;"><button class="btn" ng-click="export()">导出全部Excel</button></div>
+	</div>
+	<div>
+		
+	<div>
+		<div ng-show="withdrawFlag" style="overflow-x:auto;overflow-y:hidden;height: 392px;" >
+			<ul style="overflow-y: auto;width: 1263px">
+				<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+					<ul class="fundAuditDetailTitle">
+						<li style="width: 158px">ID单号</li>
+						<li style="width: 120px">用户名</li>
+						<li style="width: 120px">真实姓名</li>
+						<li style="width: 174px">流水号</li>
+						<li style="width: 120px">银行名称</li>
+						<li style="width: 162px">银行帐号</li>
+						<li style="width: 140px">提现金额（元）</li>
+						<li style="width: 100px">交易状态</li>
+						<li style="width: 160px">交易时间</li>
+					</ul>
+				</li>
+				<li style="height: 360px;font-size:13px">
+				<!-- ng-class="{'fundAuditDetailError' : obj.financeObj.errorFlag.item.value!=0}" -->
+					<ul  class="fundAuditDetails" ng-repeat="obj in data" class="fundAuditDetails" style="width: 100%;">
+						<li style="width: 158px;">{{obj.financeObj.tradeSerialNo.value}}</li>
+						<li style="width: 120px">{{obj.financeObj.userName.value}}</li>
+						<li style="width: 120px;">{{obj.financeObj.name.value}}</li>
+						<li style="width: 174px;">{{obj.financeObj.transSerialNo.value}}</li>
+						<li style="width: 120px">{{obj.financeObj.bankName.value}}</li>
+						<li style="width: 162px;">{{obj.financeObj.cardNo.value}}</li>
+						<li style="width: 140px">{{obj.financeObj.amount.value}}</li>
+						<li style="width: 100px">{{getValue(obj.financeObj.tradeStatus)}}</li>
+						<li style="width: 160px">{{obj.financeObj.createdAt.value}}</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div ng-show="depositFlag" style="overflow-x:auto;overflow-y:hidden;height: 392px;" >
+			<ul style="overflow-y: auto;width: 1263px">
+				<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+					<ul class="fundAuditDetailTitle">
+						<li style="width: 158px">ID单号</li>
+						<li style="width: 120px">用户名</li>
+						<li style="width: 120px">真实姓名</li>
+						<li style="width: 174px">流水号</li>
+						<li style="width: 120px">银行名称</li>
+						<li style="width: 162px">银行帐号</li>
+						<li style="width: 140px">充值金额（元）</li>
+						<li style="width: 100px">交易状态</li>
+						<li style="width: 160px">交易时间</li>
+					</ul>
+				</li>
+				<li style="height: 360px;font-size:13px">
+					<ul  class="fundAuditDetails" ng-repeat="obj in data" class="fundAuditDetails" style="width: 100%;">
+						<li style="width: 158px;">{{obj.financeObj.tradeSerialNo.value}}</li>
+						<li style="width: 120px">{{obj.financeObj.userName.value}}</li>
+						<li style="width: 120px;">{{obj.financeObj.name.value}}</li>
+						<li style="width: 174px;">{{obj.financeObj.transSerialNo.value}}</li>
+						<li style="width: 120px">{{obj.financeObj.bankName.value}}</li>
+						<li style="width: 162px;">{{obj.financeObj.cardNo.value}}</li>
+						<li style="width: 140px">{{obj.financeObj.amount.value}}</li>
+						<li style="width: 100px">{{getValue(obj.financeObj.tradeStatus)}}</li>
+						<li style="width: 160px">{{obj.financeObj.createdAt.value}}</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div ng-show="thirdPartyPayFlowFlag" style="overflow-x:auto;overflow-y:hidden;height: 392px;" >
+			<ul style="overflow-y: auto;width: 1533px">
+				<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+					<ul class="fundAuditDetailTitle">
+						<li style="width: 140px">交易日期</li>
+						<li style="width: 140px">交易流水号</li>
+						<li style="width: 100px">支付机构名称</li>
+						<li style="width: 100px">交易类型</li>
+						<li style="width: 100px">用户姓名</li>
+						<li style="width: 170px">身份证号</li>
+						<li style="width: 170px">银行帐号</li>
+						<li style="width: 100px">银行名称</li>
+						<li style="width: 100px">手机号</li>
+						<li style="width: 100px">交易金额</li>
+						<li style="width: 100px">手续费</li>
+						<li style="width: 100px">交易状态</li>
+						<li style="width: 100px">出错信息</li>
+					</ul>
+				</li>
+				<li style="height: 360px;font-size:13px;">
+					<ul ng-class="{'fundAuditDetailError' : obj.paymentObj.transStatus.item.value==3}"  class="fundAuditDetails" ng-repeat="obj in data" class="fundAuditDetails" style="width: 100%;">
+							<li style="width: 140px">{{obj.paymentObj.transAt.displayValue}}</li>
+							<li style="width: 140px">{{obj.paymentObj.flowId.value}}</li>
+							<li style="width: 100px">{{obj.paymentObj.organName.value}}</li>
+							<li style="width: 100px">{{obj.paymentObj.transType.value}}</li>
+							<li style="width: 100px">{{obj.paymentObj.name.value}}</li>
+							<li style="width: 170px">{{obj.paymentObj.idNo.value}}</li>
+							<li style="width: 170px">{{obj.paymentObj.cardNo.value}}</li>
+							<li style="width: 100px">{{obj.paymentObj.bankName.value}}</li>
+							<li style="width: 100px">{{obj.paymentObj.cellPhone.value}}</li>
+							<li style="width: 100px">{{obj.paymentObj.amount.value}}</li>
+							<li style="width: 100px">{{obj.paymentObj.fee.value}}</li>
+							<li style="width: 100px">{{getValue(obj.paymentObj.transStatus)}}</li>
+							<li style="width: 100px">{{obj.paymentObj.remark.value}}</li>
+					</ul>
+				</li>
+		</div>
+	</div>
+
+		<page conf="myConf" click-fn="changePage"></page>
+	</div>
+</div>

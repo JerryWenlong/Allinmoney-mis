@@ -1,0 +1,107 @@
+<div class="fundAuditPage page-body">
+	<div class="tool-bar">
+		<label>{{title}}</label>
+		<div style="float:right;margin-right:10px;"><button class="btn" ng-click="export()">导出Excel</button></div>
+		</div>
+	<div>
+	<div>
+
+		<div ng-show="fundOutDetailFlag" style="overflow-x:auto;overflow-y:hidden;-ms-overflow-x:auto;-ms-overflow-y:hidden;height: 392px;" >
+			<ul style="width: 1634px">
+				<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+					<ul class="fundAuditDetailTitle">
+						<li style="width: 160px">订单号</li>
+						<li style="width: 100px">姓名</li>
+						<li style="width: 100px">用户名</li>
+						<li style="width: 150px">产品名称</li>
+						<li style="width: 110px">产品期限</li>
+						<li style="width: 110px">产品成立日期</li>
+						<li style="width: 110px">产品到期日期</li>
+						<li style="width: 160px">预期年化收益率</li>
+						<li style="width: 110px">内部订单</li>
+						<li style="width: 110px">投资金额</li>
+						<li style="width: 100px">到期收益</li>
+						<li style="width: 100px">邀请奖励</li>
+						<li style="width: 100px">邀请人</li>
+						<li style="width: 100px">清算状态</li>
+					</ul>
+				</li>
+				<li style="height: 360px;font-size:13px;">
+					<ul class="fundAuditDetails" ng-repeat="obj in pageListData" class="fundAuditDetails" style="width: 100%;">
+						<li style="width: 160px">{{obj.detailObj.orderSerialNo}}</li>
+						<li style="width: 100px">{{obj.detailObj.accountName}}</li>
+						<li style="width: 100px;">{{obj.detailObj.userName}}</li>
+
+						<div style="position: relative;" ng-mousemove="obj.detailObj.prodNameShow = true" ng-mouseleave="obj.detailObj.prodNameShow = false">
+							<li style="width: 150px;">{{obj.detailObj.prodName}}</li>
+							<span class="triangle1" ng-show="obj.detailObj.prodName != '' && obj.detailObj.prodNameShow" style="margin-left: -80px;"></span>
+							<span style="margin-left:-160px;" ng-show="obj.detailObj.prodName != '' && obj.detailObj.prodNameShow" class="bubble1">{{obj.detailObj.prodName}}</span>
+						</div>
+						<li style="width: 110px">{{obj.detailObj.prodPeriod}}</li>
+						<li style="width: 110px">{{obj.detailObj.prodBeginAt}}</li>
+						<li style="width: 110px">{{obj.detailObj.prodEndAt}}</li>
+						<li style="width: 160px">{{obj.detailObj.yearRate}}</li>
+						<li style="width: 110px">{{obj.detailObj.orderInternal}}</li>
+						<li style="width: 110px">{{obj.detailObj.totalEntrust}}</li>
+						<li style="width: 100px">{{obj.detailObj.totalProfit}}</li>
+						<li style="width: 100px">{{obj.detailObj.totalReward}}</li>
+						<li style="width: 100px">{{obj.detailObj.referrerName}}</li>
+						<li style="width: 100px">{{obj.detailObj.settleStateStr}}</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div ng-show="fundInDetailFlag" style="overflow-x:auto;overflow-y:hidden;-ms-overflow-x:auto;-ms-overflow-y:hidden;height: 392px;" >
+			<ul style="overflow-x:auto;overflow-y:hidden;width: 1634px">
+				<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+					<ul class="fundAuditDetailTitle">
+						<li style="width: 160px">订单号</li>
+						<li style="width: 100px">姓名</li>
+						<li style="width: 100px">用户名</li>
+						<li style="width: 150px">产品名称</li>
+						<li style="width: 110px">产品期限</li>
+						<li style="width: 110px">起息日</li>
+						<li style="width: 110px">到息日</li>
+						<li style="width: 160px">预期年化收益率</li>
+						<li style="width: 110px">内部订单</li>
+						<li style="width: 110px">投资金额</li>
+						<li style="width: 100px">本期收益</li>
+						<li style="width: 100px">邀请奖励</li>
+						<li style="width: 100px">邀请人</li>
+						<li style="width: 100px">赎回状态</li>
+					</ul>
+				</li>
+				<li style="height: 360px;font-size:13px;">
+					<ul class="fundAuditDetails" ng-repeat="obj in pageListData" class="fundAuditDetails" style="width: 100%;">
+						<li style="width: 160px">{{obj.detailObj.orderSerialNo}}</li>
+						<li style="width: 100px">{{obj.detailObj.accountName}}</li>
+						<li style="width: 100px;">{{obj.detailObj.userName}}</li>
+
+						<div style="position: relative;" ng-mousemove="obj.detailObj.prodNameShow = true" ng-mouseleave="obj.detailObj.prodNameShow = false">
+							<li style="width: 150px;">{{obj.detailObj.prodName}}</li>
+							<span class="triangle1" ng-show="obj.detailObj.prodName != '' && obj.detailObj.prodNameShow" style="margin-left: -80px;"></span>
+							<span style="margin-left:-160px;" ng-show="obj.detailObj.prodName != '' && obj.detailObj.prodNameShow" class="bubble1">{{obj.detailObj.prodName}}</span>
+						</div>
+						<li style="width: 110px">{{obj.detailObj.prodPeriod}}</li>
+						<li style="width: 110px">{{obj.detailObj.interestBeginAt}}</li>
+						<li style="width: 110px">{{obj.detailObj.interestEndAt}}</li>
+						<li style="width: 160px">{{obj.detailObj.yearRate}}</li>
+						<li style="width: 110px">{{obj.detailObj.orderInternal}}</li>
+						<li style="width: 110px">{{obj.detailObj.totalEntrust}}</li>
+						<li style="width: 100px">{{obj.detailObj.totalProfit}}</li>
+						<li style="width: 100px">{{obj.detailObj.totalReward}}</li>
+						<li style="width: 100px">{{obj.detailObj.referrerName}}</li>
+						<li style="width: 100px">{{obj.detailObj.redeemStateStr}}</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	<div>
+		<div style="width:80%"><page conf="myConf" click-fn="changePage"></page></div>
+		<div style="float:right;margin-right:10px;"><button class="btn" ng-click="goBack()">返回</button></div>
+	</div>
+	</div>
+</div>

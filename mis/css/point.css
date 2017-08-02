@@ -1,0 +1,7 @@
+.pointMgtPage .searchbox{
+	width: 280px;
+}
+.pointDetailPage .datetimeInput{
+	height: 30px;
+	line-height: 30px;
+}

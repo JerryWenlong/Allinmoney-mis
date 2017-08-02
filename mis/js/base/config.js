@@ -1,0 +1,155 @@
+(function(){
+	var debug = true;
+
+	var ErrorMessageList = {
+		'600': '验证码出错',
+		'601': '验证码过期',
+		'602': 'Otp验证出错',
+		'603': '用户名已经存在',
+		'604': '手机号已经存在',
+		'605':	'邮箱已经存在',
+		'606':	'认证失败',
+		'607':	'注册失败',
+		'608':	'无效的密码修改token',
+		'609':	'密码修改出错',
+		'610':	'认证token无效',
+		'632':  '原始密码输入错误,请重新输入',
+		'700':	'用户和密码不匹配',
+		'701':	'密码输错超出次数限制',
+		'702':	'用户不存在',
+		'703':	'用户已注销',
+		'704':	'用户已锁定',
+		'6001': '优惠计划已存在',
+		'6002': '优惠券已存在',
+		'6009': '无效的优惠计划',
+		'6011': '内部错误',
+		'6151': '渠道已经设置',
+		'6025': '发现重复的使用条件',
+		'6062': '激活标识冲突',
+		'6102': '活动不存在',
+		'6108': '分期不存在',
+		'6160': '日志写入错误',
+		'6100': '内部错误',
+		'6113': '指数与奖品未设置',
+		'6114': '活动已过期',
+		'6115': '分期已过期',
+		'6109': '活动进度没满',
+	};
+
+	MIS.Config = {
+		FLAG_LOTTERY_STOCK_INDEX_PRIZE_NUMBER:';',
+		accountService: {
+			host:debug? 'https://unstable-mis.dianlc.com': 'https://{{mis}}.{{dns_name}}',
+			finance: 'trades/list',
+		},
+		paymentService: {
+			host: debug? 'https://unstable-mis.dianlc.com': 'https://{{mis}}.{{dns_name}}',
+			paymentFee: 'payments/settle/fees',
+			financeSum: 'payments/settle/sums',
+			payExportExcel: 'payments/pay/export',
+			withdrawExportExcel: 'trades/list/export',
+			payDetail: 'payments/pay',
+			withdrawDetail: 'payments/withdraw',
+			review: 'payments/settle/review',
+			withdrawConfirm: 'payments/settle/confirm'
+		},
+		userService:{
+			host:debug? 'https://unstable-mis.dianlc.com':'https://{{mis}}.{{dns_name}}',
+			permission:'permissions',
+			role:'roles',
+			user:'users',
+			salt:'user/signin/salt',
+			signin: 'user/signin',
+			signout: 'user/signout',
+			resetPassword: 'user/password',
+			validatePassword: 'user/password/validate',
+			userDetail: 'accounts/{0}/detail'
+		},
+		utilService: {
+			host:debug? 'https://unstable-mis.dianlc.com':'https://{{mis}}.{{dns_name}}',
+			upload: 'utils/fastdfs',
+			sms: 'utils/sms',
+			prizeRecord:　'accounts/prizes',
+		},
+		mgtProductService:{
+			host:debug? 'https://unstable-mis.dianlc.com':'https://{{mis}}.{{dns_name}}',
+			prodDict:'mgt/products/dict',
+			productCode:'mgt/products',
+			productQuota: 'mgt/products/quota',
+			taAllowBusiness:'mgt/products/allowbusiness',
+			taTrade:'mgt/products/ta'
+		},
+		mgtSettleService:{
+			host:debug? 'https://unstable-mis.dianlc.com':'https://{{mis}}.{{dns_name}}',
+			settleTradeError: 'settlement/result/exception/business',
+			settleAccountError: 'settlement/result/exception/account',
+			settleExceptions: 'settlement/result/exception/statistic',
+			settleShareError: 'settlement/result/exception/ta/share',
+			settleDividendError: 'settlement/result/exception/ta/dividend',
+			settleFlow: 'settlement/flow',
+			clearSettle: 'settlement/result/legacy',
+			getSocket: 'settlement/websocket/id',
+			updateSettleBusinessError: 'settlement/result/exception/business',
+			updateSettleAccountError:'settlement/result/exception/account',
+			updateSettleShareError:'settlement/result/exception/ta/share',
+			updateSettleDividendError:'settlement/result/exception/ta/dividend',
+			getSettlementResult: 'settlement/result/exception/statistic',
+			getSettlementOut: 'settlement/out/sums',
+			getSettlementIn: 'settlement/in/sums',
+			audit: 'settlement/dlc/audit',
+			auditOut: 'settlement/out/divides/{0}/review', 
+			auditIn: 'settlement/in/divides/{0}/review',
+			exportExcel: 'settlement/dlc/report/excel',
+			exportJournalExcel: 'settlement/dlc/journal/excel/audit',
+			// fundOutDetail: 'settlement/dlc/report/detail/out',
+			// fundInDetail: 'settlement/dlc/report/detail/in',
+			fundInDetail: 'settlement/in/divides/{0}/interests',
+			fundOutDetail: 'settlement/out/sums/{0}/orders',
+			fundJournal: 'settlement/dlc/journal/op',
+			fundOutLog: 'settlement/dlc/journal/audit/out',
+			fundInLog:'settlement/dlc/journal/audit/in',
+			createReport: 'settlement/dlc/report',
+			couponList: 'mkt/coupon/mgt/coupon',
+			couponDetail: 'mkt/coupon/mgt/coupon',
+			couponProductList: 'mgt/products',
+			activeCoupon: 'mkt/coupon/mgt/coupon/{0}/status',
+			productList: 'products',
+			createCoupon:'mkt/coupon/mgt/coupon',
+			affiche: 'utils/mgt/bulletin',
+			invest: 'mkt/point/mgt/rule/invest',
+			activity_signup: 'mkt/point/mgt/activity/signup',
+			activity_invite: 'mkt/point/mgt/activity/invite',
+			point_changes_advanced_query: 'mkt/point/mgt/journal/point/changes',
+			point_changes_simple_query: 'mkt/point/mgt/journal/point/changes/simple',
+			point_account_query: 'accounts/detail',
+			point_account_jour: 'accounts/{0}/points/jour',
+			activity_lottery:'mkt/lottery/mgt/activity',
+			product_invest_active: 'mkt/point/mgt/rule/invest/{0}/status',
+			activity_lottery_detail: 'mkt/lottery/mgt/activity/{0}',
+			installment: 'settlement/in/sums/{0}/divides',
+			agency: 'mkt/common/mgt/agency',
+			exportSettleInDetailExcel: 'settlement/in/divides/{0}/export',
+			exportSettleOutExcel: 'settlement/out/sums/{0}/export',
+			investJour: 'trades/invest/jour',
+			prize_A: 'mkt/lottery/mgt/phase',
+			submit_prize_A: 'mkt/lottery/mgt/phase/{0}/event',
+			prize_A_detail: 'accounts/prizes',
+			interesrToken: 'mkt/interest-token/mgt/token',
+			exportPrize_A: 'accounts/prizes/export'
+		},
+		metrics:{
+			host:debug? 'https://unstable-mis.dianlc.com':'https://{{mis}}.{{dns_name}}',
+			report: 'metrics/dlc/report',
+			excel: 'metrics/dlc/report/excel'
+		},
+
+		errorMessage: function(errorCode){
+			var errorCode = errorCode.toString();
+			if(ErrorMessageList.hasOwnProperty(errorCode)){
+				return ErrorMessageList[errorCode];
+			}else{
+				return ('Unknow error: ' + errorCode);
+			}
+		}
+	}
+})()

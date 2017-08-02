@@ -1,0 +1,11 @@
+<div class="page-body page">
+	<div class="tool-bar">
+		<button ng-click="newCoupon()" class="btn">新增</button>
+		<button ng-click="reviewCoupon()" class="btn">查看</button>
+		<button ng-click="activeCoupon()" class="btn">激活</button>
+	</div>
+	<div>
+		<div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:350px;border-radius:0;border-left:0;border-right:0;overflow-x:auto;overflow-y:hidden;"></div>
+		<page conf="myConf" click-fn="changePage"></page>
+	</div>
+</div>

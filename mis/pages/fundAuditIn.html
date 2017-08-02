@@ -1,0 +1,14 @@
+<div class="fundAuditPage page-body">
+	<div class="tool-bar">
+		<input class="searchbox" type="search" style="height:32px;line-height: 32px;" ng-model="searchProdName"></input> 
+		<button class="btn" ng-click="search();">查询</button>
+		<!-- <button class="fundAuditPageTitleBtn" ng-click="audit()" ng-show="showAuditBtn" ng-disabled="disabledAuditBtn">审核</button> -->
+		<button class="btn" ng-click="auditDetails()">明细</button>
+		<!-- <button class="fundAuditPageTitleBtn" ng-click="auditLog()">审核进度</button> -->
+		<!-- <div style='float:right;height:68px;line-height:68px;margin-right: 10px;'><button class="fundAuditPageTitleBtn" ng-click="export()">导出Excel</button></div> -->
+	</div>
+	<div>
+		<div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:350px;border-radius:0;border-left:0;border-right:0;overflow-x:auto;overflow-y:hidden;"></div>
+		<page conf="myConf" click-fn="changePage"></page>
+	</div>
+</div>

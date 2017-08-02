@@ -1,0 +1,23 @@
+<div class="content-body">
+	<!-- <div class="content-title">帐号管理</div> -->
+	<div class="page-body">
+		<div class="tool-bar">
+			<button ng-click="addUser()" class="btn">新建</button>
+			<button ng-click="modifyUser()" class="btn">修改</button>
+			<button class="btn" ng-click="lockUser();" ng-show="showLock">冻结账户</button>
+			<button class="btn" ng-click="lockUser('unlock');" ng-show="!showLock">解冻账户</button>
+			<select class="acc-select search-select" ng-model='searchModel.value'>
+				<option ng-repeat="item in searchModel.searchList" value="{{item.value}}" >{{item.name}}</option>
+			</select>
+			<input type="search" class="searchbox" style="margin-left:0;" placeholder="查找条件" ng-model='searchValue' ng-show='searchModel.value != "1"' />
+			<select class="search-select" style="margin-left:0;" ng-model='searchValue' ng-show='searchModel.value == "1"'>
+				<option ng-repeat="item in roleList" value="{{item.value}}">{{item.name}}</option>
+			</select>
+
+			<button class="btn" ng-click="searchClick();">查找</button>
+			<button class="btn" style="margin-left:2px;" ng-click="resetSearch();">重置</button>
+		</div>
+		<div ui-grid="gridOptions" ui-grid-selection class="myGrid"></div>
+		<page conf="myConf" click-fn="changePage"></page>
+	</div>
+</div>

@@ -1,0 +1,162 @@
+.couponManagePage{
+	height: 525px;
+}
+.couponManagePage .title{
+	height: 68px;
+	line-height: 68px;
+}
+.couponManagePage .btn{
+    height: 42px;
+    line-height: 42px;
+    width: 128px;
+    border: 1px solid #cdcdcd;
+    font-size: 16px;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #1d94ed;
+}
+.createCouponPage ul li {
+    display: inline-block;
+    float: left;
+}
+.createCouponPage ul li label{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    margin-right: 8px;
+}
+.createCouponPage .prod-title ul {
+    padding-left: 30px;
+}
+.createCouponPage .couponTitle{
+    padding-left: 30px;
+    border-bottom: 1px solid #dcdcdc;
+    line-height: 50px;
+}
+.createCouponPage .prod-title ul li{
+    width: 40%;
+}
+.createCouponPage .prod-title ul{
+    line-height: 40px;
+    height: 40px;
+}
+.createCouponPage .prod-title span{
+    margin-left: 15px;
+}
+.createCouponPage .couponTitle {
+    color: #51A9F4;
+    font-size: 20px;
+}
+.createCouponPage .coupon-pannel {
+    display: inline-block;    
+    width: 50%;
+    min-width: 550px;
+    float: left;
+    padding-top: 10px;
+}
+.createCouponPage .coupon-pannel .tip {
+    color: red;
+    display: block;
+    margin-left: 120px;
+    font-size: 12px;
+}
+.createCouponPage .coupon-pannel ul {
+    /*padding-left: 30px;*/
+    display: inline-block;
+
+}
+.createCouponPage .coupon-pannel span{
+    font-size: 12px;
+}
+.createCouponPage .coupon-pannel li{
+    width: 100%;
+    height: 50px;  
+}
+.createCouponPage .coupon-pannel input[type='text'], .createCouponPage .coupon-pannel select{
+    display: inline-block;
+    width: 240px;
+    height: 22px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+.createCouponPage .coupon-pannel textarea{
+    font-size: 14px;
+    height: 145px;
+    width: 240px;
+    vertical-align: text-top;
+    text-align: left;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid #e7e7e7;
+    padding: 10 10px;
+    resize: none;
+    margin-left: 8px;
+}
+.createCouponPage .coupon-pannel .prodDesc {
+    width: 100%;
+}   
+.createCouponPage .confirm-pannel {
+    text-align: right;
+    line-height: 42px;
+    display: inline-block;
+    width: 100%;
+}
+.createCouponPage .coupon-pannel input.invest-limit{
+    width: 100px;
+}
+.createCouponPage .product-list-select{
+    display: inline-block;
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #DDD;
+    padding: 10px 20px;
+    width: 300px;
+}
+.createCouponPage .coupon-pannel .product-list-select li{
+    height: 26px;
+    line-height: 26px;
+}
+.createCouponPage .product-list-select input{
+    float: left;
+    margin-top: 7.5px;
+}
+.createCouponPage .product-list-select span{
+    float: left;
+    display: inline-block;
+    width: 270px;
+    height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.createCouponPage .coupon-pannel .selected-item{
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    background-color: #336699; 
+    margin: 5px;
+    padding: 0 5px;
+    border-radius: 3px;
+    float: left;
+    cursor: default;
+    color: #ddd;
+}
+.createCouponPage .coupon-pannel .closeDivBtn{
+    color: #DDD;
+}
+
+.interestToken .operation-btn{
+    display: inline-block;
+    width: 30px;
+    height:20px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    color: #1d94ed;
+    border-radius: 3px;
+    margin: 0 5px;
+}

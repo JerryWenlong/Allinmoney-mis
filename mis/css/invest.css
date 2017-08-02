@@ -1,0 +1,86 @@
+.investPage{
+	min-height: 550px;
+}
+.investPage .editRow{
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px;
+}
+.investPage .editRow.area{
+	height: 120px;
+}
+.investPage label{
+	color: #1d94ed;
+}
+.investPage .area label{
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+}
+.investPage input[type="text"]{
+	width: 140px;
+	height: 22px;
+	margin-left: 8px;
+	border: 1px solid #d2d2d2;
+	border-radius: 3px;
+}
+.investPage input.error{
+	border-color: #ff0000;
+}
+.investPage .subvention-pannel{
+	padding-left: 20px;
+}
+.investPage .sub-title{
+	height: 40px;
+	line-height: 40px;
+}
+.investPage .sub-item{
+	/*display: inline-block;*/
+    border: 1px solid;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    border-color: #8e8e8e;
+    border-radius: 3px;
+    width: 600px;
+}
+.investPage .sub-item input[type="text"]{
+	width: 80px;
+}
+
+.investPage textarea{
+	width: 200px;
+	height: 100px;
+}
+.investPage .button-pannel{
+	padding-left: 20px;
+	margin-bottom: 40px;
+}
+.investPage .button-pannel .btn{
+	margin-right: 50px;
+}
+.investPage .del{
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+}
+.investPage .subDel{
+	background-image: url('../img/del-icon.png');
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	background-size: cover;
+	float: right;
+	margin-top: 9px;
+}
+.investPage .subAdd{
+	background-image: url('../img/add-icon.png');
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	background-size: cover;
+    float: left;
+    margin-top: 9px;
+    margin-left: 10px;
+}

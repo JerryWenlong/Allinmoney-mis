@@ -1,0 +1,205 @@
+.activityAdd{
+	min-height: 550px;
+	padding: 20px;
+}
+.activityAdd .active-title{
+    margin-top: 20px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #1d94ed;
+    margin-left: 20px;
+}
+.activityAdd label{
+	color: #1d94ed;
+}
+.activityAdd .active-line{
+	height: 40px;
+	line-height: 40px;
+	margin:20px 40px;
+}
+.activityAdd .active-line input[type='text']{
+	height: 25px;
+	line-height: 25px;
+}
+.activityLotteryPage .title{
+	height: 150px;
+	line-height: 50px;
+	border-bottom: 1px solid #d2d2d2;
+}
+.activityLotteryPage .title .left{
+	display: inline-block;
+    width: 500px;
+    float: left;
+}
+.activityLotteryPage .title .right{
+	display: inline-block;
+    width: 200px;
+    float: left;
+}
+table.lotteryPoundTable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+	width: 400px;
+}
+table.lotteryPoundTable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.lotteryPoundTable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+	max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+table.lotteryPoundTable .col1{
+	width: 15px;
+}
+table.lotteryPoundTable .col2{
+	min-width: 150px;
+	max-width: 180px;
+}
+table.lotteryPoundTable .col3{
+	min-width: 150px;
+	max-width: 180px;
+}
+table.lotteryPoundTable tr.highlight td{
+	background: #888;
+}
+.activityAdd .leftPannel .btn, .activityAdd .rightPannel .btn{
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0;
+}
+
+.activityAdd .leftPannel{
+	display: inline-block;
+	float: left;
+	width:50%;
+	min-width: 400px;
+}
+.activityAdd .pannel-title{
+	height: 35px;
+	line-height: 35px;
+}
+.activityAdd .menu{
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 12px;
+}
+
+.channelActivityPage{
+	min-height: 525px;
+}
+
+.channelActivityPage .pannel{
+	display: inline-block;
+	width: 50%;
+	float: left;
+	padding-top: 10px;
+}
+
+.channelActivityPage .activity-type-select{
+	display: inline-block;
+	width: 150px;
+	height: 50px;
+	padding-left: 20px;
+	padding-top: 10px;
+}
+.channelActivityPage .activity-type-select li{
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+	background-color: #eee;
+}
+.channelActivityPage .pannel .title{
+	font-size: 18px;
+	color: #000;
+	margin-bottom: 10px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.channelActivityPage .left-pannel input[type='text']{
+    display: inline-block;
+    width: 240px;
+    height: 22px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+
+.channelActivityPage .left-pannel .type-name{
+	cursor: pointer;
+	display: inline-block;
+	border-radius: 5px;
+}
+.channelActivityPage .left-pannel .type-name.selected{
+	background-color: #2292fb;
+}
+.channelActivityPage .right-pannel li{
+	display: inline-block;
+	float: left;
+	width: 100%;
+	height: 26px;
+	line-height: 26px;
+}
+.channelActivityPage .right-pannel .checkbox{
+	float: left;
+	margin-top: 7px;
+}
+
+.channelActivityPage .right-pannel .item-label{
+	float: left;
+	margin-left: 5px;
+}
+
+.channelActivityPage .right-pannel .selected-item{
+	display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    background-color: #336699; 
+    margin: 5px;
+    padding: 0 5px;
+    border-radius: 3px;
+    float: left;
+    cursor: default;
+    color: #ddd;
+}
+
+.channelActivityPage .right-pannel .activity-list-select{
+    display: inline-block;
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #DDD;
+    padding: 10px 20px;
+    width: 300px;
+}
+
+.channelActivityPage .right-pannel .closeDivBtn{
+    color: #DDD;
+}
+
+.channelActivityPage .confirm-pannel {
+    text-align: right;
+    line-height: 42px;
+    display: inline-block;
+    width: 100%;
+}
+.channelActivityPage .confirm-pannel .btn{
+	margin-left: 50px;
+	height: 25px;
+	line-height: 25px;
+	width: 70px;
+}

@@ -1,0 +1,38 @@
+<div class="content-body">
+	<!-- <div class="content-title">{{title}}</div> -->
+	<div class="content">
+		<ul>
+		<li><label>用户名</label><input
+		ng-disabled="editDisable" 
+		ng-class="showError(accountModel.user_name) ? 'textBox acc-textbox' : 'error'"
+		ng-blur="checkItem(accountModel.user_name)" 
+		ng-model="accountModel.user_name.value" type="text"></li>
+		<li><label>姓名</label><input 
+		ng-class="showError(accountModel.name) ? 'textBox acc-textbox' : 'error'"
+		ng-blur="checkItem(accountModel.name)" 
+		ng-model="accountModel.name.value" type="text"></li>
+		<!-- <li><label>身份证号</label><input 
+		ng-class="showError(accountModel.id_no) ? 'textBox acc-textbox' : 'error'"
+		ng-blur="checkItem(accountModel.id_no)"
+		ng-model="accountModel.id_no.value" type="text"></li>
+		<li><label>手机号</label><input 
+		ng-class="showError(accountModel.cellphone) ? 'textBox acc-textbox' : 'error'"
+		ng-blur="checkItem(accountModel.cellphone)"
+		ng-model="accountModel.cellphone.value" type="text"></li>
+		<li><label>邮箱</label><input 
+		ng-class="showError(accountModel.email) ? 'textBox acc-textbox' : 'error'"
+		ng-blur="checkItem(accountModel.email)"
+		ng-model="accountModel.email.value" type="text"></li> -->
+		<li>
+			<label>权限角色</label>
+			<select ng-blur="checkItem(accountModel.role_ids)"
+			ng-class="showError(accountModel.role_ids) ? 'textBox acc-textbox' : 'error'"
+			ng-model="accountModel.role_ids.item"
+			ng-options="item as item.name  for item in accountModel.role_ids.list track by item.value">
+			</select>
+		</li>
+		</ul>
+		<button ng-click="submit()" class="btn">确定</button>
+		<button ng-click="cancel()" class="btn">取消</button>
+	</div>
+</div>

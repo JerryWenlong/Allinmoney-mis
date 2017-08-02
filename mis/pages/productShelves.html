@@ -1,0 +1,723 @@
+<div id="out">
+    <div id="out-right">
+        <div id="top">
+            <span class="span1">{{pageTitle}}</span> —— <span class="span2">{{pageSubtitle}}</span>
+        </div>
+        <div id="bottom">
+                <div class="right-top">
+                    <div class="right-top-content tabpage" ng-show="divFlag==0">
+                        <ul>
+                            <li><label>产品名称</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.name.value"
+                                    ng-class="showError(productModel.name) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.name)" type="text" /><span class="requiredTips"></span></li>
+                            <li><label>募集金额</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.max_raised_amount.value"
+                                    ng-class="showError(productModel.max_raised_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.max_raised_amount)" type="text" /><span  class="requiredTips"></span></li>
+
+                            <li><label>产品代码</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.code.value"
+                                    ng-class="showError(productModel.code) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.code)" type="text" /></li>
+                            <li><label>产品全称</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.prod_full_name.value"
+                                    ng-class="showError(productModel.prod_full_name) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_full_name)" type="text" 
+                                    ng-mouseover="showProdName($event);" ng-mouseleave="hideProdName();"
+                                    /></li>
+                            <li><label>产品类别</label><select
+                                    ng-disabled="disabledProductEdit"
+                                    ng-blur="checkItem(productModel.type)"
+                                    ng-class="showError(productModel.type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.type.item"
+                                    ng-options="item as item.name  for item in productModel.type.list track by item.value"></select></li>
+                            <li><label>发行机构</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.issuer_name.value"
+                                    ng-class="showError(productModel.issuer_name) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.issuer_name)" type="text" /></li>
+                            <li><label>产品公司</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.company_name.value"
+                                    ng-class="showError(productModel.company_name) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.company_name)" type="text" /></li>
+
+                            <li><label>产品状态</label><select
+                                    ng-disabled="true"
+                                    ng-blur="checkItem(productModel.status)"
+                                    ng-class="showError(productModel.status) ? 'textBox' : 'error'"
+                                    ng-model="productModel.status.item"
+                                    ng-options="item as item.name  for item in productModel.status.list track by item.value"></select></li>
+                            <li><label>风险等级</label><select
+                                    ng-disabled="disabledProductEdit"
+                                    ng-blur="checkItem(productModel.risk_level)"
+                                    ng-class="showError(productModel.risk_level) ? 'textBox' : 'error'"
+                                    ng-model="productModel.risk_level.item"
+                                    ng-options="item as item.name  for item in productModel.risk_level.list track by item.value"></select></li>
+                             <li><label>评估等级</label><select
+                                    ng-disabled="disabledProductEdit"
+                                    ng-blur="checkItem(productModel.assess_level)"
+                                    ng-class="showError(productModel.assess_level) ? 'textBox' : 'error'"
+                                    ng-model="productModel.assess_level.item"
+                                    ng-options="item as item.name  for item in productModel.assess_level.list track by item.value"></select></li>
+                            <li><label>标的类型</label><select
+                                    ng-disabled="disabledProductEdit"
+                                    ng-blur="checkItem(productModel.invest_area)"
+                                    ng-class="showError(productModel.invest_area) ? 'textBox' : 'error'"
+                                    ng-model="productModel.invest_area.item"
+                                    ng-options="item as item.name  for item in productModel.invest_area.list track by item.value"></select></li>
+                            <li><label>收益类型</label><select
+                                    ng-disabled="disabledProductEdit"
+                                    ng-blur="checkItem(productModel.profit_type)"
+                                    ng-class="showError(productModel.profit_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.profit_type.item"
+                                    ng-options="item as item.name  for item in productModel.profit_type.list track by item.value"></select></li>
+                            <li><label>还款方式</label><select
+                                    ng-disabled="disabledProductEdit"
+                                    ng-blur="checkItem(productModel.interest_type)"
+                                    ng-class="showError(productModel.interest_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.interest_type.item"
+                                    ng-options="item as item.name for item in productModel.interest_type.list track by item.value"></select></li>
+                            <li><label>产品上线日期</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    type="text"
+                                    ng-blur="checkItem(productModel.issuedAt)"
+                                    ng-class="showError(productModel.issuedAt) ? 'textBox' : 'error'"
+                                    ng-model="productModel.issuedAt.value"
+                                    my-datetime datetime-id='issuedAt'
+                                    datetime-model='productModel.issuedAt'
+                                    datetime-value='value' 
+                                    has-time='true'/><span class="requiredTips"></span></li>
+                             <li><label>募集开始日期</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    type="text"
+                                    ng-blur="checkItem(productModel.raise_begin_date)"
+                                    ng-class="showError(productModel.raise_begin_date) ? 'textBox' : 'error'"
+                                    ng-model="productModel.raise_begin_date.value"
+                                    my-datetime datetime-id='raiseBeginDate'
+                                    datetime-model='productModel.raise_begin_date'
+                                    datetime-value='value' /></li>
+                            <li><label>募集结束日期</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    type="text"
+                                    ng-blur="checkItem(productModel.raise_end_date)"
+                                    ng-class="showError(productModel.raise_end_date) ? 'textBox' : 'error'"
+                                    ng-model="productModel.raise_end_date.value"
+                                    my-datetime datetime-id='raiseEndDate'
+                                    datetime-model='productModel.raise_end_date'
+                                    datetime-value='value' /></li>
+                            <li><label>产品开始日期</label><input
+                                    type="text"
+                                    ng-blur="checkItem(productModel.build_begin_date)"
+                                    ng-class="showError(productModel.build_begin_date) ? 'textBox' : 'error'"
+                                    ng-model="productModel.build_begin_date.value"
+                                    my-datetime datetime-id='buildBeginDate'
+                                    datetime-model='productModel.build_begin_date'
+                                    datetime-value='value' /></li>
+                            <li><label>产品结束日期</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    type="text"
+                                    ng-blur="checkItem(productModel.build_end_date)"
+                                    ng-class="showError(productModel.build_end_date) ? 'textBox' : 'error'"
+                                    ng-model="productModel.build_end_date.value"
+                                    my-datetime datetime-id='buildEndDate'
+                                    datetime-model='productModel.build_end_date'
+                                    datetime-value='value' /></li>
+                             <li><label>产品期限（天）</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-disabled="productModel.build_end_date.value != '' && productModel.build_begin_date.value"
+                                    ng-model="productModel.prod_period.value"
+                                    ng-class="showError(productModel.prod_period) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_period)" type="text" /></li>
+                            
+                            
+                           
+                            <li><label>年化天数</label><input 
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.year_days.value"
+                                    ng-class="showError(productModel.year_days) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.year_days)" type="text" /></li>
+                            
+                            <li><label>预期年收益率</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.expect_year_return.value"
+                                    ng-class="showError(productModel.expect_year_return) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.expect_year_return)" type="text" /><span class="percentUnit"></span></li>
+                            <li><label>合同年收益率</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.contract_year_return.value"
+                                    ng-class="showError(productModel.contract_year_return) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.contract_year_return)" type="text" /><span class="percentUnit"></span></li>
+                            
+                           
+
+                            <li><label>起投金额</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.min_apply_amount.value"
+                                    ng-class="showError(productModel.min_apply_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.min_apply_amount)" type="text" /></li>
+                            <li><label>追加金额</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.min_add_amount.value"
+                                    ng-class="showError(productModel.min_add_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.min_add_amount)" type="text" /></li>
+                            <!-- <li><label>首次最小投资金额</label><input
+                                    ng-model="productModel.first_min_amount.value"
+                                    ng-class="showError(productModel.first_min_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.first_min_amount)" type="text" /></li>-->
+                            <li><label>每日最高投资金额</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.daily_max_amount.value"
+                                    ng-class="showError(productModel.daily_max_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.daily_max_amount)" type="text" /></li>
+                            <li><label>累计最高投资金额</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.max_total_amount.value"
+                                    ng-class="showError(productModel.max_total_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.max_total_amount)" type="text" /></li>
+                            <li><label>T+N天</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.back_days.value"
+                                    ng-class="showError(productModel.back_days) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.back_days)" type="text" /></li>
+                            <li><label>Tag</label><input
+                                    ng-disabled="disabledProductEdit"
+                                    ng-model="productModel.tags.value"
+                                    ng-class="showError(productModel.tags) ? 'textBox' : 'error'"
+                                    placeholder="使用英文输入法中的逗号分隔"
+                                    ng-blur="checkItem(productModel.tags)" type="text" /></li>
+                        </ul>
+                    </div>
+
+                    <div class="prodDetailPage tabpage" ng-show="divFlag==1">
+                        <proddetails product-detail-list="productDetailList" create-detail='createDetail' get-file="getFile"  ng-disabled="disabledProductEdit"></proddetails>
+                    </div>
+
+                    <div class="right-top-content tabpage" ng-show="divFlag==2">
+                        <div class="prod-rate-content-top">
+                        <div class="prod-rate-content-top-input" style='height: 110px;border-bottom: 1px solid #dcdcdc'>
+                            <ul>
+                                <li>
+                                    <label>收费类型</label>
+                                    <select 
+                                    ng-model='fareModel.fareType.item'
+                                    ng-options="item as item.name for item in fareModel.fareType.list track by item.value"
+                                    ng-disabled="disabledProductEdit"
+                                    ></select>
+                                </li>
+                                <li>
+                                    <label>收费模式</label>
+                                    <select
+                                    ng-model='fareModel.fareMode.item'
+                                    ng-options="item as item.name for item in fareModel.fareMode.list track by item.value"
+                                    ng-disabled="disabledProductEdit"
+                                    ></select>
+                                </li>
+                                <li>
+                                    <label>费率类型</label>
+                                    <select
+                                    ng-model='fareModel.fareMethod.item'
+                                    ng-options="item as item.name for item in fareModel.fareMethod.list track by item.value"
+                                    ng-change="setRatio();"
+                                    ng-disabled="disabledProductEdit"
+                                    ></select>
+                                </li>
+                                <li ng-show="fareModel.fareMethod.item.value == 2">
+                                    <label>分段级别</label>
+                                    <select
+                                    ng-model='fareModel.fareDivideSection.item'
+                                    ng-options="item as item.name for item in fareModel.fareDivideSection.list track by item.value"
+                                    ></select>
+                                </li>
+                                <li ng-show="fareModel.fareMethod.item.value == 2">
+                                    <label>最高利率(%)</label>
+                                    <input type='text' ng-model='fareModel.maxFare'/>%
+                                </li>
+                                <li>
+                                    <label ng-show="fareInputFlag">费率值</label>
+                                    <input ng-blur="checkFareValue()" ng-class='{"true":"textBox", "false":"error"}[fareContentRegFlag]' ng-show="fareInputFlag" type='text' ng-model='fareContent' ng-disabled="disabledProductEdit" />{{fareContentUnit}}
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="prod-rate-content-bottom">
+                        <p class="prod-rate-conten-btn">
+                            <button class="prodBtn" ng-disabled="!fareContentRegFlag || disabledProductEdit" ng-click="addFare();" >添加</button>
+                        </p>
+                        <ul><li><ol>
+                                <li>收费类型</li>
+                                <li>收费模式</li>
+                                <li>费用比率</li>
+                                <li>固定收费金额</li>
+                                <li>分段级别</li>
+                                <li>最高利率</li>
+                                <li>删除</li>
+                            </ol></li>
+                            <li ng-repeat="fare in productModel.fares" 
+                            ng-class="{'true':'error'}[showDuplicateFare(fare)]"><ol>
+                                <li>{{fareModel.showType(fare.fareType)}}</li>
+                                <li>{{fareModel.showMode(fare.fareMode)}}</li>
+                                <li class="percentUnit">{{fare.fareRatio}}</li>
+                                <li>{{fare.fixedFare}}</li>
+                                <li>第{{fare.minInvest + 1}}级</li>
+                                <li>{{fare.maxFare}}</li>
+                                <li><button style="margin-left:0;" class="prodBtn" ng-click="removeFare($index);">删除</button></li>
+                            </ol></li>
+                        </ul>
+                        </div>
+                    </div>
+<!--                     <div class="right-top-content tabpage" ng-show="divFlag==0">
+                        <ul>
+                            <li><label>产品代码</label><input
+                                    ng-disabled="editDisable"
+                                    ng-model="productModel.code.value"
+                                    ng-class="showError(productModel.code) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.code)" type="text" /></li> -->
+                            <!-- <li><label>产品内码</label><input type="text"  placeholder="不用"/></li> -->
+<!--                             <li><label>产品名称</label><input
+                                    ng-model="productModel.name.value"
+                                    ng-class="showError(productModel.name) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.name)" type="text" /></li> -->
+                            <!-- TODO -->
+ <!--                            <li><label>产品全称</label><input
+                                    ng-model="productModel.name.value"
+                                    ng-class="showError(productModel.name) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.name)" type="text" /></li> -->
+                            <!-- <li><label>产品别名</label><input
+                                    ng-model="productModel.alias_name.value"
+                                    ng-class="showError(productModel.alias_name) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.alias_name)" type="text" /></li>
+                            <li><label>拼音代码</label><input
+                                    ng-model="productModel.spell_code.value"
+                                    ng-class="showError(productModel.spell_code) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.spell_code)" type="text" /></li>
+                            <li><label>产品相关代码</label><input type="text" placeholder="不用"/></li> -->
+<!--                             <li><label>发行机构(输入框)</label><select
+                                    ng-disabled="editDisable"
+                                    ng-blur="checkItem(productModel.ta_no)"
+                                    ng-class="showError(productModel.ta_no) ? 'textBox' : 'error'"
+                                    ng-model="productModel.ta_no.item"
+                                    ng-options="item as item.name  for item in productModel.ta_no.list track by item.value"></select></li>
+                            <li><label>产品公司</label><input
+                                    ng-model="productModel.company_name.value"
+                                    ng-class="showError(productModel.company_name) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.company_name)" type="text" /></li> -->
+                           <!--  <li><label>托管银行</label><input
+                                    ng-model="productModel.trustee_bank.value"
+                                    ng-class="showError(productModel.trustee_bank) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.trustee_bank)" type="text" /></li>
+                            <li><label>产品发起人</label><input
+                                    ng-model="productModel.sponsor.value"
+                                    ng-class="showError(productModel.sponsor) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.sponsor)" type="text" /></li>
+                            <li><label>产品管理人</label><input
+                                    ng-model="productModel.manager.value"
+                                    ng-class="showError(productModel.manager) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.manager)" type="text" /></li>
+                            <li><label>产品托管人</label><input
+                                    ng-model="productModel.trustee.value"
+                                    ng-class="showError(productModel.trustee) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.trustee)" type="text" /></li>
+                            <li><label>产品类别</label><select
+                                    ng-disabled="editDisable"
+                                    ng-blur="checkItem(productModel.type)"
+                                    ng-class="showError(productModel.type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.type.item"
+                                    ng-options="item as item.name  for item in productModel.type.list track by item.value"></select></li>
+                            <li><label>产品辅助类别</label><select
+                                    ng-blur="checkItem(productModel.type_ass)"
+                                    ng-class="showError(productModel.type_ass) ? 'textBox' : 'error'"
+                                    ng-model="productModel.type_ass.item"
+                                    ng-options="item as item.name  for item in productModel.type_ass.list track by item.value"></select></li>
+                            <li><label>产品代码类型</label><select
+                                    ng-blur="checkItem(productModel.code_type)"
+                                    ng-class="showError(productModel.code_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.code_type.item"
+                                    ng-options="item as item.name  for item in productModel.code_type.list track by item.value"></select></li> -->
+ <!--                            <li><label>产品状态</label><select
+                                    ng-disabled="editDisable"
+                                    ng-blur="checkItem(productModel.status)"
+                                    ng-class="showError(productModel.status) ? 'textBox' : 'error'"
+                                    ng-model="productModel.status.item"
+                                    ng-options="item as item.name  for item in productModel.status.list track by item.value"></select></li>
+                            <li><label>风险等级</label><select
+                                    ng-blur="checkItem(productModel.risk_level)"
+                                    ng-class="showError(productModel.risk_level) ? 'textBox' : 'error'"
+                                    ng-model="productModel.risk_level.item"
+                                    ng-options="item as item.name  for item in productModel.risk_level.list track by item.value"></select></li> -->
+                            <!-- <li><label>币种类别</label><select
+                                    ng-blur="checkItem(productModel.currency_type)"
+                                    ng-class="showError(productModel.currency_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.currency_type.item"
+                                    ng-options="item as item.name  for item in productModel.currency_type.list track by item.value"></select></li>
+                            <li><label>产品收费方式</label><select
+                                    ng-blur="checkItem(productModel.fund_charge_type)"
+                                    ng-class="showError(productModel.fund_charge_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.fund_charge_type.item"
+                                    ng-options="item as item.name  for item in productModel.fund_charge_type.list track by item.value"></select></li>
+                            <li><label>分红方式</label><select
+                                    ng-blur="checkItem(productModel.dividend_type)"
+                                    ng-class="showError(productModel.dividend_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.dividend_type.item"
+                                    ng-options="item as item.name  for item in productModel.dividend_type.list track by item.value"></select></li> -->
+<!--                             <li><label>募集开始日期</label><input
+                                    type="text"
+                                    ng-blur="checkItem(productModel.ipo_begin_time)"
+                                    ng-class="showError(productModel.ipo_begin_time) ? 'textBox' : 'error'"
+                                    ng-model="productModel.ipo_begin_time.value"
+                                    my-datetime datetime-id='ipoBeginTime'
+                                    datetime-model='productModel.ipo_begin_time'
+                                    datetime-value='value' /></li>
+                            <li><label>募集结束日期</label><input
+                                    type="text"
+                                    ng-blur="checkItem(productModel.ipo_end_time)"
+                                    ng-class="showError(productModel.ipo_end_time) ? 'textBox' : 'error'"
+                                    ng-model="productModel.ipo_end_time.value"
+                                    my-datetime datetime-id='ipoEndTime'
+                                    datetime-model='productModel.ipo_end_time'
+                                    datetime-value='value' /></li>
+                            <li><label>产品开始日期</label><input
+                                    type="text"
+                                    ng-blur="checkItem(productModel.prod_begin_time)"
+                                    ng-class="showError(productModel.prod_begin_time) ? 'textBox' : 'error'"
+                                    ng-model="productModel.prod_begin_time.value"
+                                    my-datetime datetime-id='prodBeginTime'
+                                    datetime-model='productModel.prod_begin_time'
+                                    datetime-value='value' /></li>
+                            <li><label>产品结束日期</label><input
+                                    type="text"
+                                    ng-blur="checkItem(productModel.prod_end_time)"
+                                    ng-class="showError(productModel.prod_end_time) ? 'textBox' : 'error'"
+                                    ng-model="productModel.prod_end_time.value"
+                                    my-datetime datetime-id='prodEndTime'
+                                    datetime-model='productModel.prod_end_time'
+                                    datetime-value='value' /></li>
+                        </ul>
+                    </div> -->
+<!--                     <div class="right-top-content tabpage" ng-show="divFlag==1">
+                        <ul> -->
+                            <!-- <li><label>发行日期</label><input
+                                    type="text"
+                                    ng-blur="checkItem(productModel.issue_time)"
+                                    ng-class="showError(productModel.issue_time) ? 'textBox' : 'error'"
+                                    ng-model="productModel.issue_time.value"
+                                    my-datetime datetime-id='issueTime'
+                                    datetime-model='productModel.issue_time'
+                                    datetime-value='value' /></li>
+                            <li><label>发行价</label><input
+                                    ng-model="productModel.prod_issue_price.value"
+                                    ng-class="showError(productModel.prod_issue_price) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_issue_price)" type="text" /></li> -->
+<!--                             <li><label>产品期限（天）</label><input
+                                    ng-model="productModel.prod_term.value"
+                                    ng-class="showError(productModel.prod_term) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_term)" type="text" /></li>
+                            <li><label>投资类型</label><select
+                                    ng-blur="checkItem(productModel.invest_type)"
+                                    ng-class="showError(productModel.invest_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.invest_type.item"
+                                    ng-options="item as item.name  for item in productModel.invest_type.list track by item.value"></select></li>
+                            <li><label>收益类型</label><select
+                                    ng-blur="checkItem(productModel.income_type)"
+                                    ng-class="showError(productModel.income_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.income_type.item"
+                                    ng-options="item as item.name  for item in productModel.income_type.list track by item.value"></select></li> -->
+                            <!-- <li><label>付息频率</label><input
+                                    ng-model="productModel.interest_freq.value"
+                                    ng-class="showError(productModel.interest_freq) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.interest_freq)" type="text" /></li> -->
+                           <!--  <li><label>付息频率</label><select
+                                    ng-blur="checkItem(productModel.interest_freq)"
+                                    ng-class="showError(productModel.interest_freq) ? 'textBox' : 'error'"
+                                    ng-model="productModel.interest_freq.item"
+                                    ng-options="item as item.name for item in productModel.interest_freq.list track by item.value"></select></li>  -->      
+<!--                             <li><label>付息方式</label><select
+                                    ng-blur="checkItem(productModel.interest_type)"
+                                    ng-class="showError(productModel.interest_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.interest_type.item"
+                                    ng-options="item as item.name for item in productModel.interest_type.list track by item.value"></select></li>
+                            <li><label>预期年收益率</label><input
+                                    ng-model="productModel.prod_pre_ratio.value"
+                                    ng-class="showError(productModel.prod_pre_ratio) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_pre_ratio)" type="text" /></li> -->
+                            <!-- TODO -->
+<!--                             <li><label>合同年收益率</label><input
+                                    ng-model="productModel.prod_pre_ratio.value"
+                                    ng-class="showError(productModel.prod_pre_ratio) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_pre_ratio)" type="text" /></li> -->
+                            <!-- TODO -->
+
+
+
+                            <!-- <li><label>产品收益率信息</label><input placeholder="占位" type="text" /></li> -->
+<!-- 
+                            <li><label>年化天数</label><input 
+                                    ng-model="productModel.year_days.value"
+                                    ng-class="showError(productModel.year_days) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.year_days)" type="text" /></li> -->
+
+                            <!-- <li><label>7日年化收益率</label><input
+                                    ng-model="productModel.seven_income_ratio.value"
+                                    ng-class="showError(productModel.seven_income_ratio) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.seven_income_ratio)" type="text" /></li>
+                            <li><label>万份单位收益</label><input
+                                    ng-model="productModel.per_myriad_income.value"
+                                    ng-class="showError(productModel.per_myriad_income) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.per_myriad_income)" type="text" /></li>
+                            <li><label>应计利息</label><input
+                                    ng-model="productModel.prod_interest.value"
+                                    ng-class="showError(productModel.prod_interest) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_interest)" type="text" /></li>
+                            <li><label>回售价格</label><input
+                                    ng-model="productModel.prod_put_price.value"
+                                    ng-class="showError(productModel.prod_put_price) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_put_price)" type="text" /></li>
+                            <li><label>面值</label><input
+                                    ng-model="productModel.prod_par_value.value"
+                                    ng-class="showError(productModel.prod_par_value) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_par_value)" type="text" /></li>
+                            <li><label>净值</label><input
+                                    ng-model="productModel.nav.value"
+                                    ng-class="showError(productModel.nav) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.nav)" type="text" /></li>
+                            <li><label>累计净值</label><input
+                                    ng-disabled="editDisable" 
+                                    ng-model="productModel.nav_total.value"
+                                    ng-class="showError(productModel.nav_total) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.nav_total)" type="text" /></li> -->
+<!--                             <li><label>评估等级</label><select
+                                    ng-blur="checkItem(productModel.prod_assess_level)"
+                                    ng-class="showError(productModel.prod_assess_level) ? 'textBox' : 'error'"
+                                    ng-model="productModel.prod_assess_level.item"
+                                    ng-options="item as item.name  for item in productModel.prod_assess_level.list track by item.value"></select></li> -->
+                            <!-- <li><label>允许委托方式</label><select
+                                    ng-blur="checkItem(productModel.en_entrust_type)"
+                                    ng-class="showError(productModel.en_entrust_type) ? 'textBox' : 'error'"
+                                    ng-model="productModel.en_entrust_type.item"
+                                    ng-options="item as item.name  for item in productModel.en_entrust_type.list track by item.value"></select></li> -->
+                           <!--  <li style='display: flex;'>
+                                <label>允许委托方式</label>
+                                <my-dropdown-check-list 
+                                options-data= "productModel.en_entrust_type.list"
+                                width="140"
+                                height="300"
+                                ></my-dropdown-check-list>
+                            </li>
+                            <li><label>合同收益率</label><input
+                                    ng-model="productModel.profit_platform.value"
+                                    ng-class="showError(productModel.profit_platform) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.profit_platform)" type="text" /></li> -->
+<!--                         </ul>
+                    </div>
+                    <div class="right-top-content tabpage" ng-show="divFlag==2">
+                        <ul>
+                            <li><label>起投金额</label><input
+                                    ng-model="productModel.person_open_share.value"
+                                    ng-class="showError(productModel.person_open_share) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_open_share)" type="text" /></li>
+                            <li><label>追加金额</label><input
+                                    ng-model="productModel.org_open_share.value"
+                                    ng-class="showError(productModel.org_open_share) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.org_open_share)" type="text" /></li>
+                            <li><label>首次投资金额</label><input
+                                    ng-model="productModel.max_pdshare.value"
+                                    ng-class="showError(productModel.max_pdshare) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.max_pdshare)" type="text" /></li>
+                            <li><label>每日最高投资金额</label><input
+                                    ng-model="productModel.person_sum_sub_balance.value"
+                                    ng-class="showError(productModel.person_sum_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_sum_sub_balance)" type="text" /></li>
+                            <li><label>累计最高投资金额</label><input
+                                    ng-model="productModel.person_min_sub_balance.value"
+                                    ng-class="showError(productModel.person_min_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_min_sub_balance)" type="text" /></li> -->
+                           <!--  <li><label>个人首次最低金额</label><input
+                                    ng-model="productModel.person_open_share.value"
+                                    ng-class="showError(productModel.person_open_share) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_open_share)" type="text" /></li>
+                            <li><label>机构首次最低金额</label><input
+                                    ng-model="productModel.org_open_share.value"
+                                    ng-class="showError(productModel.org_open_share) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.org_open_share)" type="text" /></li>
+                            <li><label>客户单日认购申购最高金额</label><input
+                                    ng-model="productModel.max_pdshare.value"
+                                    ng-class="showError(productModel.max_pdshare) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.max_pdshare)" type="text" /></li>
+                            <li><label>个人认购累计最高金额</label><input
+                                    ng-model="productModel.person_sum_sub_balance.value"
+                                    ng-class="showError(productModel.person_sum_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_sum_sub_balance)" type="text" /></li>
+                            <li><label>个人最低认购金额</label><input
+                                    ng-model="productModel.person_min_sub_balance.value"
+                                    ng-class="showError(productModel.person_min_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_min_sub_balance)" type="text" /></li>
+                            <li><label>机构最低认购金额</label><input
+                                    ng-model="productModel.org_min_sub_balance.value"
+                                    ng-class="showError(productModel.org_min_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.org_min_sub_balance)" type="text" /></li>
+                            <li><label>个人追加认购金额</label><input
+                                    ng-model="productModel.person_append_sub_balance.value"
+                                    ng-class="showError(productModel.person_append_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_append_sub_balance)" type="text" /></li>
+                            <li><label>机构追加认购金额</label><input
+                                    ng-model="productModel.org_append_sub_balance.value"
+                                    ng-class="showError(productModel.org_append_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.org_append_sub_balance)" type="text" /></li>
+                            <li><label>个人最低申购金额</label><input
+                                    ng-model="productModel.person_min_allot_balance.value"
+                                    ng-class="showError(productModel.person_min_allot_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_min_allot_balance)" type="text" /></li>
+                            <li><label>机构最低申购金额</label><input
+                                    ng-model="productModel.org_min_allot_balance.value"
+                                    ng-class="showError(productModel.org_min_allot_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.org_min_allot_balance)" type="text" /></li>
+                            <li><label>个人追加申购金额</label><input
+                                    ng-model="productModel.person_append_allot_balance.value"
+                                    ng-class="showError(productModel.person_append_allot_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.person_append_allot_balance)" type="text" /></li>
+
+
+                            <li><label>机构追加申购金额</label><input
+                                    ng-model="productModel.org_append_allot_balance.value"
+                                    ng-class="showError(productModel.org_append_allot_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.org_append_allot_balance)" type="text" /></li>
+
+
+                            <li><label>最低募集金额</label><input
+                                    ng-model="productModel.prod_min_balance.value"
+                                    ng-class="showError(productModel.prod_min_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_min_balance)" type="text" /></li>
+                            <li><label>最高募集金额</label><input
+                                    ng-model="productModel.prod_max_balance.value"
+                                    ng-class="showError(productModel.prod_max_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_max_balance)" type="text" /></li>
+                            <li><label>赎回最低份额</label><input
+                                    ng-model="productModel.redeem_min_share.value"
+                                    ng-class="showError(productModel.redeem_min_share) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.redeem_min_share)" type="text" /></li>
+                            <li><label>持仓量的最低值</label><input
+                                    ng-model="productModel.inventory_min_amount.value"
+                                    ng-class="showError(productModel.inventory_min_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.inventory_min_amount)" type="text" /></li>
+                            <li><label>最低资产要求</label><input
+                                    ng-model="productModel.min_asset_need.value"
+                                    ng-class="showError(productModel.min_asset_need) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.min_asset_need)" type="text" /></li>
+                            <li><label>份额精确小数位数</label><input
+                                    ng-model="productModel.precisions.value"
+                                    ng-class="showError(productModel.precisions) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.precisions)" type="text" /></li>
+                            <li><label>认购/申购的单位</label><input
+                                    ng-model="productModel.sub_unit.value"
+                                    ng-class="showError(productModel.sub_unit) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.sub_unit)" type="text" /></li>
+                            <li><label>赎回最小单位</label><input
+                                    ng-model="productModel.redeem_unit.value"
+                                    ng-class="showError(productModel.redeem_unit) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.redeem_unit)" type="text" /></li>
+                            <li><label>每次最大可申购比例</label><input
+                                    ng-model="productModel.max_allot_ratio.value"
+                                    ng-class="showError(productModel.max_allot_ratio) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.max_allot_ratio)" type="text" /></li>
+                            <li><label>巨额比例</label><input
+                                    ng-model="productModel.huge_ratio.value"
+                                    ng-class="showError(productModel.huge_ratio) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.huge_ratio)" type="text" /></li>
+                            <li><label>允许转换代码</label><input
+                                    ng-model="productModel.en_change_code.value"
+                                    ng-class="showError(productModel.en_change_code) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.en_change_code)" type="text" /></li>
+                            <li><label>最少转换份额</label><input
+                                    ng-model="productModel.min_trans_share.value"
+                                    ng-class="showError(productModel.min_trans_share) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.min_trans_share)" type="text" /></li> -->
+<!--                         </ul>
+                    </div>
+                    <div class="right-top-content tabpage" ng-show="divFlag==3">
+                        <ul> -->
+                           <!--  <li><label>转换单位</label><input
+                                    ng-model="productModel.switch_unit.value"
+                                    ng-class="showError(productModel.switch_unit) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.switch_unit)" type="text" /></li>
+                            <li><label>允许拆分成的代码</label><input
+                                    ng-model="productModel.en_split_code.value"
+                                    ng-class="showError(productModel.en_split_code) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.en_split_code)" type="text" /></li>
+                            <li><label>最低拆分数量</label><input
+                                    ng-model="productModel.min_split_amount.value"
+                                    ng-class="showError(productModel.min_split_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.min_split_amount)" type="text" /></li>
+                            <li><label>最低合并数量</label><input
+                                    ng-model="productModel.min_merge_amount.value"
+                                    ng-class="showError(productModel.min_merge_amount) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.min_merge_amount)" type="text" /></li>
+                            <li><label>最小定投金额</label><input
+                                    ng-model="productModel.min_timer_balance.value"
+                                    ng-class="showError(productModel.min_timer_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.min_timer_balance)" type="text" /></li>
+                            <li><label>最大定投金额</label><input
+                                    ng-model="productModel.max_timer_balance.value"
+                                    ng-class="showError(productModel.max_timer_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.max_timer_balance)" type="text" /></li>
+                            <li><label>认购人数上限</label><input
+                                    ng-model="productModel.max_sub_num.value"
+                                    ng-class="showError(productModel.max_sub_num) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.max_sub_num)" type="text" /></li>
+                            <li><label>认购总额度</label><input placeholder="占位" type="text" /></li>
+                            <li><label>小号下限金额</label><input
+                                    ng-model="productModel.min_sub_balance.value"
+                                    ng-class="showError(productModel.min_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.min_sub_balance)" type="text" /></li>
+                            <li><label>小号上限金额</label><input
+                                    ng-model="productModel.max_sub_balance.value"
+                                    ng-class="showError(productModel.max_sub_balance) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.max_sub_balance)" type="text" /></li>
+                            <li><label>支付超时时间（秒）</label><input placeholder="占位" type="text" /></li>
+                            <li><label>额度申请有效期限（天）</label><input
+                                    ng-model="productModel.quota_valid_term.value"
+                                    ng-class="showError(productModel.quota_valid_term) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.quota_valid_term)" type="text" /></li>
+                            <li><label>风险揭示书链接地址</label><input
+                                    ng-model="productModel.risk_des_url.value"
+                                    ng-class="showError(productModel.risk_des_url) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.risk_des_url)" type="text" /></li> -->
+<!--                             <li><label>T+N天</label><input
+                                    ng-model="productModel.prod_back_n.value"
+                                    ng-class="showError(productModel.prod_back_n) ? 'textBox' : 'error'"
+                                    ng-blur="checkItem(productModel.prod_back_n)" type="text" /></li> -->
+                            <!-- <li><label>总额度</label><input
+                            ng-model="productModel.enable_quota.value"
+                            ng-class="showError(productModel.enable_quota) ? 'textBox' : 'error'"
+                            ng-blur="checkItem(productModel.enable_quota)" type="text" /></li> -->
+<!--                         </ul>
+                    </div>
+                    <div class="right-top-content-checkbox-page" ng-show="divFlag==4">
+                        <ul> -->
+                            <!-- <li ng-repeat="prodCodeCtrlstr in productModel.prod_code_ctrlstr.list">
+                                <input type="checkbox"
+                                       ng-model="prodCodeCtrlstr.checked"/>
+                                <span>{{prodCodeCtrlstr.name}}</span>
+
+                            </li> -->
+<!--                         </ul>
+
+                    </div> -->
+                    
+                </div>
+                <div id="right-top-button">
+                        <button class="prodBtn" ng-disabled="preBtn" id="preBtn" ng-click="preContent()">上一页</button>
+                        <button class="prodBtn" ng-disabled="nextBtn" id="nextBtn" ng-click="nextContent()">下一页</button>
+                </div>
+            
+                <div id="right-bottom">
+                    <button class="prodBtn" ng-click="submit()" ng-disabled="disabledProductEdit">确    定</button>
+                    <button class="prodBtn" ng-click="cancel();">取    消</button>
+                </div>
+        </div>
+    </div>
+</div>

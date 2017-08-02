@@ -1,0 +1,128 @@
+#ta-biz-bottom {
+    width: 90%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid gainsboro;
+}
+#ta-biz-content{
+    height: 100%;
+    /*border-bottom: 1px dotted #BEEDFB;*/
+}
+#ta-biz-commit-button{
+    line-height: 40px;
+    text-align: right;
+    padding-right: 100px;
+}
+#ta-biz-content select{
+    border: 0;
+    outline: 1px solid rgb(204,204,204);
+    background-color: white;
+    display: inline-block;
+    height: 25px;
+    width: 142px;
+    margin-left: 9px;
+}
+#ta-biz-content ul{
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+#ta-biz-content ul li{
+    color: #797A7B;
+    font-size: 12px;
+    line-height: 36px;
+    list-style: none;
+    display: inline-block;
+    width: 50%;
+}
+#ta-biz-content ul li label{
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+}
+.lateralUlWith2Columns{
+    height: 220px;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+.lateralUlWith2Columns li{
+    color: #797A7B;
+    font-size: 12px;
+    line-height: 36px;
+    list-style: none;
+    display: inline-block;
+    overflow:hidden;
+    float: left;
+    width: 50%;
+}
+.lateralUlWith2Columns li label{
+    display: inline-block;
+    width: 160px;
+    text-align: right;
+}
+.lateralUlWith2Columns li input[type='text'],.textBox{
+    display: inline-block;
+    width: 140px;
+    margin-left: 8px;
+    height: 22px;
+}
+
+.lateralUlWith2Columns select{
+    border: 0;
+    outline: 1px solid rgb(204,204,204);
+    background-color: white;
+    display: inline-block;
+    height: 25px;
+    width: 142px;
+    margin-left: 9px;
+}
+#ta-trade-bottom {
+    width: 90%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid gainsboro;
+}
+#ta-trade-content {
+    height: 100%;
+}
+#ta-trade-top-content {
+    padding-top: 5px;
+    margin: 0;
+    background-color: transparent;
+    clear: both;
+}
+#ta-trade-bottom-content-out {
+    margin: 0;
+    height: 300px;
+
+}
+#ta-trade-bottom-title {
+    color: #797A7B;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 20px;
+}
+#ta-trade-bottom-content {
+    background-color: white;
+    height: 266px;
+    border-top: 1px solid gainsboro;
+    margin-right: 20px;
+    overflow: scroll;
+    line-height: 30px;
+    padding-left: 5px;
+    width: 99%;
+    font-size: 13px;
+}
+.ta-commit-button {
+    line-height: 40px;
+    text-align: right;
+    padding-right: 100px;
+}

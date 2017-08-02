@@ -1,0 +1,91 @@
+<div class="afficheCreatePage page">
+	<ul>
+		<li>
+			<label>文章分类</label>
+			<select
+			ng-model="afficheModel.bulletinType.item"
+			ng-options="item as item.name for item in afficheModel.bulletinType.list track by item.value"
+			></select>
+		</li>
+		<li>
+			<label>标题名称</label>
+			<input type="text"
+			ng-model="afficheModel.title.value"
+			ng-class="{'true':'error'}[afficheModel.title.error]"
+			style="width: 450px;" 
+			></input>
+		</li>
+		<li>
+			<label>关键词</label>
+			<input type="text"
+			ng-model="afficheModel.keyWord.value"
+			ng-class="{'true':'error'}[afficheModel.keyWord.error]"
+			style="width: 450px;"
+			></input>
+		</li>
+		<li>
+			<label>简介</label>
+			<textarea 
+			ng-model="afficheModel.summery.value"
+			ng-class=""
+			ng-blur=""
+			style="width: 450px;"
+			></textarea>
+		</li>
+		<li>
+			<label>是否置顶</label>
+			<input name="stickOrNot" type="radio" value="1" ng-model="afficheModel.top.value" />是
+			<input name="stickOrNot" type="radio" value="0" ng-model="afficheModel.top.value" />否
+		</li>
+		<li style="height:130px;">
+			<label>置顶图片</label>
+			<div class="plusDiv">
+				<div class="plus"></div>
+				<img ng-click="" src="{{afficheModel.thumbnailUrl}}" style="width:242px; height: 90px; position: absolute;" />
+				<span><s ng-click=""></s></span>
+				<input class="fileInput" type="file" file-model get-file="getFile" />
+			</div>
+		</li>
+		<li>
+			<label>是否显示</label>
+			<input name="showOrNot" type="radio" value="1" ng-model="afficheModel.publish.value" />是
+			<input name="showOrNot" type="radio" value="0" ng-model="afficheModel.publish.value" />否
+		</li>
+		<li>
+			<label>发布时间</label>
+			<input
+			class="orderMgtPopInput3 datetimeInput"
+			type="text"
+			ng-model= "afficheModel.publishAt.value"
+			my-datetime datetime-id="affichePublishAt"
+			datetime-model='afficheModel.publishAt'
+	        has-time='true'
+	        datetime-value='value'
+	        placeholder="发布时间"
+	        ng-class="{'true':'error'}[afficheModel.publishAt.error]"
+			></input>
+			<span ng-show="afficheModel.publishAt.error" class="tip">{{afficheModel.publishAt.errorMsg}}</span>
+		</li>
+		<li>
+			<label>文章链接</label>
+			<input type="text"
+			ng-model="afficheModel.fileUrl.value"
+			ng-class="{'true':'error'}[afficheModel.fileUrl.error]"
+			style="width: 450px;"
+			></input>
+		</li>
+	</ul>
+	<div id="editor" type="text/plain" style="width: 802px;height: 502px;
+	    margin-left: 132px;
+	    display: inline-block;
+	    margin-top: 20px;">
+		
+	</div>
+	<div style="display: inline-block;width: 100%;margin-bottom: 50px; margin-top: 20px;">
+		<div style="display: inline-block; margin-left: 132px; width: 802px;text-align: center;">
+			<button class="btn" ng-click="submit();">提交</button>
+			<button class="btn" ng-click="cancel();" style="margin-left: 100px;">取消</button>
+		</div>
+		
+	</div>
+</div>

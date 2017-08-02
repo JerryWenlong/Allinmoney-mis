@@ -1,0 +1,52 @@
+<div class="activityAdd page">
+	<div>
+		<p class="active-title ">
+			<label>活动名称</label>
+			<span>{{activityModel.activityTitle.value}}</span>
+		</p>
+		<p class="active-line">
+			<label>有效时间</label>
+			<input
+			type="text"
+			ng-model= "activityModel.beginAt.value"
+			my-datetime datetime-id="activitySignupBeginTime"
+			datetime-model='activityModel.beginAt'
+			datetime-value='value'
+	        has-time='true'
+	        ng-class="{'false':'error'}[activityModel.beginAt.checked]"
+			></input>
+			<span>~</span>
+			<input
+			type="text"
+			ng-model= "activityModel.endAt.value"
+			my-datetime datetime-id="activitySignupEndTime"
+			datetime-model='activityModel.endAt'
+			datetime-value='value'
+	        has-time='true'
+	        ng-class="{'false':'error'}[activityModel.endAt.checked]"
+			></input>
+		</p>
+		<p class="active-line">
+			<label>获得点币</label>
+			<input
+			type="text"
+			ng-model="activityModel.pointInviter.value"
+			ng-class="{'false':'error'}[activityModel.pointInviter.checked]"
+			></input>
+			<span>个</span>
+		</p>
+		<p class="active-line">
+			<label>获得收益</label>
+			<input
+			type="text"
+			ng-model="activityModel.rebateRateInviter.value"
+			ng-class="{'false':'error'}[activityModel.rebateRateInviter.checked]"
+			></input>
+			<span>%</span>
+		</p>
+	</div>
+	<div class="active-line">
+		<button class="btn" ng-click="createNew();">确定</button>
+		<button class="btn" ng-click="cancel();" style="margin-left: 60px;">取消</button>
+	</div>
+</div>

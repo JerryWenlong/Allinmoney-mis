@@ -1,0 +1,17 @@
+<div class="page-body">
+	<div class="tool-bar">
+		<select class="search-select" ng-model='searchModel.item'
+			 ng-options="item as item.name for item in searchModel.searchList track by item.value" value="{{item.value}}" >{{item.name}}>
+		</select>
+		<input type="search" class="searchbox" placeholder="请输入 姓名/电话 查询" ng-model='searchStr'>
+		
+		<button class="btn" ng-click="query()">查询</button>
+		<!-- <button class="btn" ng-click="advanceQuery()">高级查询</button> -->
+		<button class="btn" ng-click="lockCtrl()">锁定</button>
+		<button class="btn" ng-click="detail()">详细信息</button>
+		<button class="btn" ng-click="showInvestList();">投资记录</button>
+		<div style="float:right;"><button class="btn" ng-click="export()">导出全部Excel</button></div>
+	</div>
+	<div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+	<page conf="myConf" click-fn="changePage"></page>
+</div>

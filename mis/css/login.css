@@ -1,0 +1,160 @@
+[ng-cloak]
+{
+	display: none !important;
+}
+*{
+	margin:0;
+	padding:0;
+}
+ol, ul, li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+img{
+	border: 0;
+}
+html, body{
+	margin:0;
+	height: 100%;
+	overflow: hidden;
+	min-width: 1200px;
+	min-height: 768px;
+}
+body{
+	background:url('../img/background2.png') no-repeat;
+	background-size: cover;
+}
+input::-ms-clear { display: none; }
+input,button,select,textarea{outline:none}textarea{resize:none}
+
+.wrapper{
+	width: 100%;
+	height: 100%;
+}
+.header {
+	min-height: 156px;
+	height: 15%;
+	width: 100%;
+	border-bottom: 1px solid #004986;
+}
+.logo{
+	background: url('../img/login_logo.png') no-repeat;
+	background-size: 40%;
+	background-position: 0 center;
+	width: 100%;
+	height: 100%;
+	margin-left: 10%;
+}
+.container{
+	height: 70%;
+	position: relative;
+}
+.footer{
+	height: 15%;
+	border-top: 1px solid #626262;
+}
+.login-pannel{
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	margin-right: 13%;
+	margin-top: 4%;
+	width: 21%;
+	height: 68%;
+	border: 1px solid #d2d2d2;
+	border-radius: 5px;
+	max-height: 365px;
+	max-width: 338px;
+}
+.login-pannel .title{
+	color: #bfbfbf;
+	font-size: 24px;
+	background-color: #003764;
+	/*height: 14%;*/
+	/*line-height: 14%;*/
+	text-align: center;
+	padding: calc(7% - 12px) 0;
+	/*display: inline-block;*/
+}
+/*.login-pannel .title span{
+	padding: calc(7% -12px) 0;
+	display: inline-block;
+}*/
+
+.name, .pw, .login-error{
+	width: 84%;
+	height: 18px;
+	border: 1px solid #d2d2d2;
+	border-radius: 5px;
+	margin:0 8%;
+	padding: calc(6.5% - 9px) 0;
+	color: #FFF;
+}
+.name .label, .pw .label{
+    display: inline-block;
+    float: left;
+    width: 25%;
+    font-size: 18px;
+    color: #FFF;
+    margin-left: 5%;
+    min-width: 54px;
+}
+.name input, .pw input{
+    height: 18px;
+    width: 65%;
+    border: none;
+    font-size: 16px;
+    padding-left: 2.5%;
+    color: #FFF;
+    background: transparent;
+}
+.name{
+	margin-top: 16%;
+}
+.pw{
+	margin-top: 8%;
+}
+.login-error{
+	position: absolute;
+	color: #AAA;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 2% 0;
+	border: none;
+}
+
+
+/*.login-btn{
+	margin: 17% 8% 0 8%;
+	height: 13%;
+	width: 84%;
+	font-size: 24px;
+	padding: calc(6.5% - 12px) 0;
+}*/
+.button-pannel{
+	width: 84%;
+	height: 40px;
+	margin:  17% 8% 0 8%;
+	border: none;
+	background: #f39800;
+	border-radius: 5px;
+	color: #FFF;
+}
+.login-btn{
+	height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+}
+.btn{
+	background-color: #f39800;
+	color: #fff;
+	border-radius: 5px;
+	border:none;
+	cursor: pointer;
+}
+.login-btn:active{
+	background-color: #ffbf80;
+	color: #aaa;
+}

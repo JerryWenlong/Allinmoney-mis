@@ -1,0 +1,15 @@
+<div class="page-body">
+	<div class="tool-bar">
+		<label>{{title}}</label>
+		<!-- <select ng-model="searchStatus.item" 
+				ng-options="item as item.name for item in statusList track by item.value"
+				ng-change="changePage(1);"></select> -->
+		<button class="btn" ng-click="audit()" ng-show="financeInShowAuditBtn">审核</button>
+		<button class="btn" ng-click="auditDetails()">明细</button>
+		<div style='float:right;height:68px;line-height:68px;margin-right: 10px;'><button class="btn" ng-click="export()">导出Excel</button></div>
+	</div>
+	<div>
+		<div ui-grid="gridOptions" ui-grid-selection class="myGrid" style="height:350px;overflow-x:auto;overflow-y:hidden;"></div>
+		<page conf="myConf" click-fn="changePage"></page>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+.page-list {
+    font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif,"SimSun";
+    color: #4d4d4d;
+    position: relative;
+    margin-top: 30px;
+    height: 32px;
+    width: 100%;
+    text-align: center;
+}
+.page-list li:last-child{
+    border: 0;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+}
+.pagination {
+    vertical-align: middle;
+    height: 30px;
+    line-height: 28px;
+    list-style: none outside none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.pagination li {
+    border: 1px solid gainsboro;
+    display: inline-block;
+    margin-right: 6px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+
+}
+.pagination li:hover {
+    color: #2aa0f8;
+}
+.no-items {
+    text-align: center;
+    padding: 9px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 700;
+    color: red;
+}
+.page-total input[type='text'] {
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: bottom;
+    background-color: transparent;
+    border: 1px solid gainsboro;
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 28px;
+    height: 28px;
+}

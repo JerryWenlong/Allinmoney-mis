@@ -1,0 +1,55 @@
+<div class="channelActivityPage page">
+
+	<div class="left-pannel pannel">
+		<p><label class="title">活动类型</label></p>
+		<ul class="activity-type-select">
+			<li ng-repeat="activity in activityList" ng-click="selectActivity(activity);">
+				<span class="type-name" ng-class="{true: 'selected'}[activity.selected]">{{activity.name}}</span>
+			</li>
+		</ul>
+	</div>
+
+	<div class="right-pannel pannel">
+		<p><label class="title">选择活动</label></p>
+		<ul class="activity-list-select">
+			<li ng-repeat="activity in currentActivity.list">
+				<input type="checkbox" ng-model="activity.checked" class="checkbox"></input>
+				<span class="item-label">{{activity.name}}</span>
+			</li>
+		</ul>
+		<div class="selected-prod">
+			<label class="title">所选择的活动:</label>
+			<div>
+				<div class="selected-item" ng-repeat='item in activityList[0].list | filter: selectedActivityFilter'>
+					<p>
+						<span>{{item.name}}</span>
+						<span class="closeDivBtn" ng-click="cancelSelect(item);"></span>
+					</p>
+				</div>
+				<div class="selected-item" ng-repeat='item in activityList[1].list | filter: selectedActivityFilter'>
+					<p>
+						<span>{{item.name}}</span>
+						<span class="closeDivBtn" ng-click="cancelSelect(item);"></span>
+					</p>
+				</div>
+				<div class="selected-item" ng-repeat='item in activityList[2].list | filter: selectedActivityFilter'>
+					<p>
+						<span>{{item.name}}</span>
+						<span class="closeDivBtn" ng-click="cancelSelect(item);"></span>
+					</p>
+				</div>
+				<div class="selected-item" ng-repeat='item in activityList[3].list | filter: selectedActivityFilter'>
+					<p>
+						<span>{{item.name}}</span>
+						<span class="closeDivBtn" ng-click="cancelSelect(item);"></span>
+					</p>
+				</div>
+			</div>	
+		</div>
+
+	</div>
+	<div class="confirm-pannel">
+		<button class="btn" ng-click="submit();">提交</button>
+		<button class="btn" ng-click="cancel();">返回</button>
+	</div>
+</div>

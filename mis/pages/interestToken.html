@@ -1,0 +1,31 @@
+<div class="page-body interestToken">
+	<div class="tool-bar">
+		<button class="btn" ng-click="editInterestToken(0,true)">添加</button> 
+		<button class="btn" ng-click="save()">保存</button>
+	</div>
+	<div style="overflow-x:auto;overflow-y:hidden;-ms-overflow-x:auto;-ms-overflow-y:hidden;height: 392px;" >
+		<ul style="width: 604px;">
+			<li style="background-image:linear-gradient(to top,#efefef,white);height:32px;line-height:30px;font-size:14px;font-weight:bold;">
+				<ul class="fundAuditDetailTitle">
+					<!-- <li style="width: 30px;height: 30px;"></li> -->
+					<li style="width: 200px">产品类型</li>
+					<li style="width: 200px">复投利息</li>
+					<li style="width: 200px">操作</li>
+				</ul>
+			</li>
+			<li style="height: 360px;font-size:13px;">
+				<ul class="fundAuditDetails" ng-repeat="obj in displayList" style="width: 100%;height:{{obj.height}};line-height:{{obj.height}}">
+					<!-- <li style="width: 30px;"><input type="radio" name="selectToken"></input></li> -->
+					<li style="width: 200px;height:{{obj.height}};">{{obj.prodTerm}}</li>
+					<li style="width: 200px;height:{{obj.height}};line-height: 30px;">
+						<span style="width: 100%"  ng-repeat="item in obj.strList">{{item}}</span>
+					</li>
+					<li style="width: 200px;height:{{obj.height}};">
+						<button class="operation-btn" ng-click="editInterestToken(obj.index)">修改</button> 
+						<button class="operation-btn" ng-click="deleteInterestToken(obj.index)">删除</button> 
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>

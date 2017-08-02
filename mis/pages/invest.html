@@ -1,0 +1,67 @@
+<div class="investPage page" ng-class="{'true': 'disablePage'}[disableSave]">
+	<p class="title blueText centerText" >
+		<span>设置产品活动</span>
+		<span>{{investModel.prodName}}</span>
+		<span ng-show="disableSave">(已审核)</span>
+	</p>
+	<p class="editRow">
+		<label>活动名称</label>
+		<input type='text' ng-model="investModel.ruleName" ng-disabled='disableSave'></input>
+	</p>
+	<p class="editRow">
+		<label>活动状态</label>
+		<span style="margin-left: 8px;">{{enableFlagStr}}</span>
+	</p>
+	<p class="editRow">
+		<label>活动时间</label>
+		<input
+		type="text"
+		ng-model= "investModel.beginAt"
+		my-datetime datetime-id="investBeginTime"
+		datetime-model='investModel.beginAt'
+        has-time='true'
+        ng-disabled='disableSave'
+		></input>
+		<span>~</span>
+		<input
+		type="text"
+		ng-model= "investModel.endAt"
+		my-datetime datetime-id="investEndTime"
+		datetime-model='investModel.endAt'
+        has-time='true'
+        ng-disabled='disableSave'
+		></input>
+	</p>
+	<legend class="subvention-pannel" >
+		<p class="sub-title">
+			<span style="float: left">抵扣信息分段表</span>
+			<span class="subAdd" ng-click="addSubvention();" ng-hide='disableSave'></span>
+		</p>
+		<div class="sub-item" ng-repeat="subvention in investModel.subventions" ng-class="{'false':'error'}[subvention.checked()]">
+			<p>
+				<label>最高抵扣比例</label>
+				<input type="text" style="width: 60px;" ng-model='subvention.subventionValue'></input>
+				<span>%</span>
+				<label>投资金额限制</label>
+				<input type="text" ng-model="subvention.investAmountMin" 
+					ng-blur="checkSubvention(subvention);"
+					></input><span>元</span>
+				<span>~</span>
+				<input type="text" ng-model="subvention.investAmountMax"
+					ng-blur="checkSubvention(subvention);"
+					></input><span>元</span>
+				<span ng-show="isLast(subvention) && !disableSave;" class="subDel" ng-click="removeLastSubvention()"></span>
+			</p>
+			
+		</div>
+		
+	</legend>
+	<p class="editRow area">
+		<label>介绍</label>
+		<textarea ng-model="investModel.description" ng-disabled='disableSave'></textarea>
+	</p>
+	<div class="button-pannel">
+		<button ng-click="save();" class="btn" ng-disabled='disableSave'>保存</button>
+		<button ng-click="cancel();" class="btn">取消</button>
+	</div>
+</div>
